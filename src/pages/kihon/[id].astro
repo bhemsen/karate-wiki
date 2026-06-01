@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { techniken, kategoriefarben } from '../../data/techniken';
+
+export function getStaticPaths() {
+  return techniken.map(t => ({ params: { id: t.id }, props: { technik: t } }));
+}
+
+const { technik } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const verwandte = techniken.filter(t => t.kategorie === technik.kategorie && t.id !== technik.id).slice(0, 3);
+---
+<Layout title={`${technik.nameDE} (${technik.nameJP})`} description={technik.beschreibung}>
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="breadcrumb"><a href={base}>Startseite</a> › <a href={`${base}kihon`}>Kihon</a> › {technik.nameDE}</p>
+      <div class="header-top">
+        <span class="badge" style={`background: ${kategoriefarben[technik.kategorie]}`}>{technik.kategorie}</span>
+        <span class="schwierigkeit-badge">{technik.schwierigkeit}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="detail-grid">
+      <div class="illustration-box">
+        <div class="illustration-placeholder">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v5m0 0-3 4m3-4 3 4M8 12H4m4 0 1 2M16 12h4m-4 0-1 2"/></svg>
+          <p>Illustration: {technik.nameDE}</p>
+          <p class="illustration-sub">{technik.nameJP}</p>
+        </div>
+      </div>
+
+      <div class="detail-content">
+        <p class="detail-jp">{technik.nameJP}</p>
+        <h1 class="detail-title">{technik.nameDE}</h1>
+        <p class="detail-phonetik">Kategorie: {technik.kategorie} · Ab {technik.kyu}. Kyu</p>
+
+        <div class="beschreibung-box">
+          <h2>Ausführung</h2>
+          <p>{technik.beschreibung}</p>
+        </div>
+
+        <div class="meta-box">
+          <div class="meta-item">
+            <span class="meta-label">Schwierigkeit</span>
+            <span>{technik.schwierigkeit}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Kategorie</span>
+            <span class="badge" style={`background: ${kategoriefarben[technik.kategorie]}`}>{technik.kategorie}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Prüfungsrelevant ab</span>
+            <span>{technik.kyu}. Kyu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {verwandte.length > 0 && (
+      <div class="verwandte">
+        <h2>Weitere {technik.kategorie}-Techniken</h2>
+        <div class="grid-3">
+          {verwandte.map(v => (
+            <a href={`${base}kihon/${v.id}`} class="card">
+              <span class="badge" style={`background: ${kategoriefarben[v.kategorie]}`}>{v.kategorie}</span>
+              <p style="font-size:1.2rem;color:var(--primary);margin:.5rem 0 .25rem">{v.nameJP}</p>
+              <p style="font-weight:600">{v.nameDE}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</Layout>
+
+<style>
+  .header-top { display: flex; gap: 0.75rem; align-items: center; margin-top: 0.75rem; }
+  .schwierigkeit-badge { font-size: 0.8rem; color: var(--text-muted); }
+  .detail-grid { display: grid; grid-template-columns: 340px 1fr; gap: 3rem; margin-bottom: 4rem; }
+  .illustration-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .illustration-placeholder {
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    padding: 2rem;
+    text-align: center;
+  }
+  .illustration-placeholder svg { opacity: 0.3; }
+  .illustration-sub { font-size: 1.5rem; color: var(--primary); opacity: 0.4; }
+  .detail-jp { font-size: 2.5rem; color: var(--primary); line-height: 1; margin-bottom: 0.25rem; }
+  .detail-title { font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .detail-phonetik { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 2rem; }
+  .beschreibung-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+  .beschreibung-box h2 { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.75rem; }
+  .beschreibung-box p { line-height: 1.8; }
+  .meta-box { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+  .meta-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+  .verwandte h2 { font-size: 1.25rem; margin-bottom: 1.5rem; }
+  @media (max-width: 768px) { .detail-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { dachi, type Schwierigkeit } from '../../data/dachi';
+
+export function getStaticPaths() {
+  return dachi.map(d => ({ params: { id: d.id }, props: { stand: d } }));
+}
+
+const { stand } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const schwierigkeitFarbe: Record<Schwierigkeit, string> = {
+  'Anfänger': '#27AE60', 'Mittel': '#E67E22', 'Fortgeschritten': '#C0392B'
+};
+const andere = dachi.filter(d => d.id !== stand.id).slice(0, 3);
+---
+<Layout title={`${stand.nameDE} (${stand.nameJP})`} description={stand.beschreibung}>
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="breadcrumb"><a href={base}>Startseite</a> › <a href={`${base}staende`}>Stände</a> › {stand.nameDE}</p>
+      <div style="display:flex;gap:.75rem;align-items:center;margin-top:.75rem">
+        <span class="badge" style={`background: ${schwierigkeitFarbe[stand.schwierigkeit]}`}>{stand.schwierigkeit}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="detail-grid">
+      <div class="illustration-box">
+        <div class="illustration-placeholder">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v5m0 0-3 4m3-4 3 4"/></svg>
+          <p>Illustration: {stand.nameDE}</p>
+          <p class="ill-sub">{stand.nameJP}</p>
+        </div>
+      </div>
+      <div>
+        <p class="stand-jp-large">{stand.nameJP}</p>
+        <h1>{stand.nameDE}</h1>
+        <div class="info-box" style="margin-top:1.5rem">
+          <h2>Beschreibung</h2>
+          <p>{stand.beschreibung}</p>
+        </div>
+        <div class="meta-box">
+          <div class="meta-item"><span class="meta-label">Schwierigkeit</span><span>{stand.schwierigkeit}</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verwandte">
+      <h2>Weitere Stände</h2>
+      <div class="grid-3">
+        {andere.map(d => (
+          <a href={`${base}staende/${d.id}`} class="card">
+            <span class="badge" style={`background: ${schwierigkeitFarbe[d.schwierigkeit]}`}>{d.schwierigkeit}</span>
+            <p style="font-size:1.5rem;color:var(--primary);margin:.5rem 0 .25rem">{d.nameJP}</p>
+            <p style="font-weight:600">{d.nameDE}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .detail-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; margin-bottom: 4rem; }
+  .illustration-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+  .illustration-placeholder { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .75rem; color: var(--text-muted); padding: 2rem; text-align: center; }
+  .illustration-placeholder svg { opacity: .3; }
+  .ill-sub { font-size: 1.5rem; color: var(--primary); opacity: .4; }
+  .stand-jp-large { font-size: 2.5rem; color: var(--primary); line-height: 1; margin-bottom: .25rem; }
+  h1 { font-size: 1.75rem; }
+  .info-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+  .info-box h2 { font-size: .875rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); margin-bottom: .75rem; }
+  .info-box p { line-height: 1.8; }
+  .meta-box { display: flex; gap: 1.5rem; }
+  .meta-item { display: flex; flex-direction: column; gap: .25rem; }
+  .meta-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); }
+  .verwandte h2 { font-size: 1.25rem; margin-bottom: 1.5rem; }
+  @media (max-width: 768px) { .detail-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { kata, type Schwierigkeit, type Gruppe } from '../../data/kata';
+const base = import.meta.env.BASE_URL;
+
+const schwierigkeitFarbe: Record<Schwierigkeit, string> = {
+  'Anfänger': '#27AE60', 'Mittel': '#E67E22', 'Fortgeschritten': '#C0392B', 'Meister': '#8E44AD'
+};
+const gruppen: Gruppe[] = ['Heian', 'Tekki', 'Shorin', 'Shorei', 'Sonstige'];
+---
+<Layout title="Kata – Alle 26 Shotokan Kata" description="Alle 26 offiziellen Shotokan Kata mit Bedeutung, Bewegungsanzahl, Schwierigkeit und Beschreibung.">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="breadcrumb"><a href={base}>Startseite</a> › Kata</p>
+      <h1>型 Kata</h1>
+      <p class="subtitle">Alle 26 offiziellen Shotokan-Kata</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-gruppe="alle">Alle (26)</button>
+      {gruppen.map(g => (
+        <button class="filter-btn" data-gruppe={g}>{g} ({kata.filter(k => k.gruppe === g).length})</button>
+      ))}
+    </div>
+
+    <div class="grid-3" id="kata-grid">
+      {kata.map(k => (
+        <a href={`${base}kata/${k.id}`} class="card kata-card" data-gruppe={k.gruppe}>
+          <div class="card-header">
+            <span class="badge" style={`background: ${schwierigkeitFarbe[k.schwierigkeit]}`}>{k.schwierigkeit}</span>
+            <span class="bewegungen">{k.bewegungsanzahl} Bewegungen</span>
+          </div>
+          <h2 class="kata-name">{k.name}</h2>
+          <p class="kata-bedeutung">„{k.bedeutung}"</p>
+          <p class="kata-desc">{k.beschreibung.slice(0, 120)}…</p>
+          <div class="kata-meta">
+            <span class="gruppe-badge">{k.gruppe}</span>
+            <span class="kyu-info">Ab {k.erstePruefung}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+  .subtitle { color: var(--text-muted); font-size: 0.9rem; }
+  .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+  .bewegungen { font-size: 0.75rem; color: var(--text-muted); }
+  .kata-name { font-size: 1.1rem; margin-bottom: 0.25rem; }
+  .kata-bedeutung { font-size: 0.8rem; color: var(--primary); font-style: italic; margin-bottom: 0.75rem; }
+  .kata-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; }
+  .kata-meta { display: flex; justify-content: space-between; align-items: center; }
+  .gruppe-badge { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); background: var(--bg); border: 1px solid var(--border); padding: 0.15rem 0.5rem; border-radius: 4px; }
+  .kyu-info { font-size: 0.75rem; color: var(--text-muted); }
+  .kata-card[hidden] { display: none; }
+</style>
+
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('#filter-bar .filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('#kata-grid .kata-card');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const gruppe = btn.dataset.gruppe;
+      cards.forEach(card => { card.hidden = gruppe !== 'alle' && card.dataset.gruppe !== gruppe; });
+    });
+  });
+</script>

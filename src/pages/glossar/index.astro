@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { glossar, type GlossarKategorie } from '../../data/glossar';
+const base = import.meta.env.BASE_URL;
+
+const kategorien: GlossarKategorie[] = ['Technik', 'Dojo-Etikette', 'Philosophie', 'Körper', 'Zählen'];
+const kategoriefarbe: Record<GlossarKategorie, string> = {
+  'Technik': '#2980B9',
+  'Dojo-Etikette': '#27AE60',
+  'Philosophie': '#8E44AD',
+  'Körper': '#E67E22',
+  'Zählen': '#7F8C8D',
+};
+
+const nach_buchstaben = glossar.slice().sort((a, b) => a.begriffJP.localeCompare(b.begriffJP));
+---
+<Layout title="Glossar – Japanische Karate-Begriffe" description="Über 50 japanische Karate-Begriffe mit Aussprache, Übersetzung und Erklärung auf Deutsch.">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="breadcrumb"><a href={base}>Startseite</a> › Glossar</p>
+      <h1>語彙 Glossar</h1>
+      <p class="subtitle">{glossar.length} japanische Karate-Begriffe mit Aussprache und Erklärung</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-kat="alle">Alle ({glossar.length})</button>
+      {kategorien.map(k => (
+        <button class="filter-btn" data-kat={k}>{k} ({glossar.filter(e => e.kategorie === k).length})</button>
+      ))}
+    </div>
+
+    <div class="glossar-list" id="glossar-list">
+      {glossar.map(eintrag => (
+        <div class="glossar-eintrag" data-kat={eintrag.kategorie} id={eintrag.id}>
+          <div class="eintrag-header">
+            <div>
+              <span class="eintrag-jp">{eintrag.begriffJP}</span>
+              <span class="eintrag-aussprache">[{eintrag.aussprache}]</span>
+            </div>
+            <span class="badge" style={`background: ${kategoriefarbe[eintrag.kategorie]}`}>{eintrag.kategorie}</span>
+          </div>
+          <h2 class="eintrag-de">{eintrag.uebersetzungDE}</h2>
+          <p class="eintrag-erklaerung">{eintrag.erklaerung}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  h1 { font-size: 2rem; margin-bottom: .25rem; }
+  .subtitle { color: var(--text-muted); font-size: .9rem; }
+  .glossar-list { display: flex; flex-direction: column; gap: 1rem; }
+  .glossar-eintrag {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    transition: border-color .15s;
+  }
+  .glossar-eintrag:hover { border-color: var(--primary); }
+  .glossar-eintrag[hidden] { display: none; }
+  .eintrag-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: .5rem; gap: 1rem; }
+  .eintrag-jp { font-size: 1.5rem; color: var(--primary); line-height: 1; margin-right: .75rem; }
+  .eintrag-aussprache { font-size: .875rem; color: var(--text-muted); font-style: italic; }
+  .eintrag-de { font-size: 1rem; margin-bottom: .5rem; font-weight: 600; }
+  .eintrag-erklaerung { font-size: .875rem; color: var(--text-muted); line-height: 1.7; }
+</style>
+
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('#filter-bar .filter-btn');
+  const eintraege = document.querySelectorAll<HTMLElement>('#glossar-list .glossar-eintrag');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const kat = btn.dataset.kat;
+      eintraege.forEach(e => { e.hidden = kat !== 'alle' && e.dataset.kat !== kat; });
+    });
+  });
+</script>
