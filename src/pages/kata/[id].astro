@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { kata, type Schwierigkeit } from '../../data/kata';
+import { kataAblaufMap } from '../../data/kata-ablauf';
 
 export function getStaticPaths() {
   return kata.map(k => ({ params: { id: k.id }, props: { eintrag: k } }));
@@ -12,6 +13,7 @@ const schwierigkeitFarbe: Record<Schwierigkeit, string> = {
   'Anfänger': '#27AE60', 'Mittel': '#E67E22', 'Fortgeschritten': '#C0392B', 'Meister': '#8E44AD'
 };
 const verwandte = kata.filter(k => k.gruppe === eintrag.gruppe && k.id !== eintrag.id).slice(0, 4);
+const ablauf = kataAblaufMap[eintrag.id];
 ---
 <Layout title={`${eintrag.name}`} description={eintrag.beschreibung}>
   <div class="page-header">
@@ -89,11 +91,56 @@ const verwandte = kata.filter(k => k.gruppe === eintrag.gruppe && k.id !== eintr
         )}
       </div>
     </div>
+
+    <div class="ablauf-section">
+      <h2 class="section-title">Technik-Abfolge</h2>
+
+      {!ablauf || ablauf.schritte.length === 0 ? (
+        <div class="ablauf-empty">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8v4m0 4h.01"/>
+          </svg>
+          <p>Die detaillierte Technik-Abfolge für diese Kata wird noch ergänzt.</p>
+        </div>
+      ) : (
+        <div>
+          {!ablauf.vollstaendig && (
+            <div class="ablauf-hinweis">
+              Wichtigste Schlüsseltechniken — vollständige Abfolge wird ergänzt
+            </div>
+          )}
+          <div class="ablauf-list">
+            {ablauf.schritte.map(schritt => (
+              <div class={`ablauf-schritt${schritt.kiai ? ' kiai' : ''}`}>
+                <div class="schritt-nr">
+                  {schritt.kiai
+                    ? <span class="kiai-badge" title="Kiai">気</span>
+                    : <span>{schritt.nr}</span>
+                  }
+                </div>
+                <div class="schritt-body">
+                  <div class="schritt-head">
+                    <span class="schritt-technik">{schritt.technik}</span>
+                    <div class="schritt-tags">
+                      <span class={`tag-seite seite-${schritt.seite.toLowerCase()}`}>{schritt.seite}</span>
+                      <span class="tag-stand">{schritt.stand}</span>
+                      <span class="tag-richtung">{schritt.richtung}</span>
+                    </div>
+                  </div>
+                  <p class="schritt-desc">{schritt.beschreibung}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
   </div>
 </Layout>
 
 <style>
-  .detail-grid { display: grid; grid-template-columns: 1fr 380px; gap: 3rem; }
+  .detail-grid { display: grid; grid-template-columns: 1fr 380px; gap: 3rem; margin-bottom: 4rem; }
 
   .kata-stats-box {
     display: grid;
@@ -166,5 +213,136 @@ const verwandte = kata.filter(k => k.gruppe === eintrag.gruppe && k.id !== eintr
   .vk-name { font-weight: 500; }
   .vk-meta { font-size: 0.75rem; color: var(--text-muted); }
 
+  /* ── Technik-Abfolge ── */
+  .ablauf-section { padding-bottom: 4rem; }
+
+  .ablauf-hinweis {
+    font-size: 0.8rem;
+    color: #92400E;
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-radius: var(--radius);
+    padding: 0.6rem 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .ablauf-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .ablauf-empty svg { opacity: 0.3; }
+  .ablauf-empty p { font-size: 0.9rem; }
+
+  .ablauf-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .ablauf-schritt {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+  }
+  .ablauf-schritt:last-child { border-bottom: none; }
+  .ablauf-schritt:hover { background: #FAFAFA; }
+  .ablauf-schritt.kiai { background: #FFF5F4; }
+  .ablauf-schritt.kiai:hover { background: #FEE9E7; }
+
+  .schritt-nr {
+    width: 56px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    border-right: 1px solid var(--border);
+    font-family: var(--font-head);
+  }
+  .kiai-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-family: var(--font-head);
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 0.1rem;
+  }
+
+  .schritt-body {
+    flex: 1;
+    padding: 0.9rem 1.25rem;
+    min-width: 0;
+  }
+
+  .schritt-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+  }
+
+  .schritt-technik {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    font-family: var(--font-head);
+  }
+
+  .schritt-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .tag-seite, .tag-stand, .tag-richtung {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .tag-seite { background: #EEF2FF; color: #4338CA; }
+  .tag-seite.seite-rechts { background: #FFF7ED; color: #C2410C; }
+  .tag-seite.seite-beide { background: #F0FDF4; color: #15803D; }
+  .tag-stand { background: #F1F5F9; color: #475569; }
+  .tag-richtung { background: #F8FAFC; color: #64748B; }
+
+  .schritt-desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
   @media (max-width: 900px) { .detail-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) {
+    .schritt-nr { width: 44px; }
+    .schritt-body { padding: 0.75rem 1rem; }
+  }
 </style>
