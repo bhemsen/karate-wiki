@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { techniken, kategoriefarben } from '../../data/techniken';
+import { toRomanisch } from '../../utils/romanisch';
 
 export function getStaticPaths() {
   return techniken.map(t => ({ params: { id: t.id }, props: { technik: t } }));
@@ -20,7 +21,8 @@ const verwandte = techniken.filter(t => t.kategorie === technik.kategorie && t.i
         <span class="sep">›</span>
         {technik.nameDE}
       </p>
-      <h1>{technik.nameJP} <span class="h1-de">{technik.nameDE}</span></h1>
+      <h1>{technik.nameJP} <span class="romanisch">({toRomanisch(technik.id)})</span></h1>
+      <p class="subtitle">{technik.nameDE}</p>
       <div class="header-badges">
         <span class="badge" style={`background: ${kategoriefarben[technik.kategorie]}`}>{technik.kategorie}</span>
         <span class="header-meta">{technik.schwierigkeit} · Prüfungsrelevant ab {technik.kyu}. Kyu</span>
@@ -71,7 +73,7 @@ const verwandte = techniken.filter(t => t.kategorie === technik.kategorie && t.i
           {verwandte.map(v => (
             <a href={`${base}kihon/${v.id}`} class="card verwandte-card">
               <span class="badge" style={`background: ${kategoriefarben[v.kategorie]}`}>{v.kategorie}</span>
-              <p class="vk-jp">{v.nameJP}</p>
+              <p class="vk-jp">{v.nameJP} <span class="romanisch">({toRomanisch(v.id)})</span></p>
               <p class="vk-name">{v.nameDE}</p>
               <p class="vk-desc">{v.beschreibung.slice(0, 80)}…</p>
             </a>
@@ -83,7 +85,6 @@ const verwandte = techniken.filter(t => t.kategorie === technik.kategorie && t.i
 </Layout>
 
 <style>
-  .h1-de { font-size: 1.1rem; font-weight: 400; opacity: 0.7; margin-left: 0.5rem; display: inline; }
 
   .detail-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; margin-bottom: 4rem; }
 

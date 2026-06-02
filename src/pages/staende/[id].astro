@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { dachi, type Schwierigkeit } from '../../data/dachi';
+import { toRomanisch } from '../../utils/romanisch';
 
 export function getStaticPaths() {
   return dachi.map(d => ({ params: { id: d.id }, props: { stand: d } }));
@@ -23,7 +24,8 @@ const andere = dachi.filter(d => d.id !== stand.id).slice(0, 4);
         <span class="sep">›</span>
         {stand.nameDE}
       </p>
-      <h1>{stand.nameJP} <span class="h1-de">{stand.nameDE}</span></h1>
+      <h1>{stand.nameJP} <span class="romanisch">({toRomanisch(stand.id)})</span></h1>
+      <p class="subtitle">{stand.nameDE}</p>
       <div class="header-badges">
         <span class="badge" style={`background: ${schwierigkeitFarbe[stand.schwierigkeit]}`}>{stand.schwierigkeit}</span>
       </div>
@@ -41,7 +43,7 @@ const andere = dachi.filter(d => d.id !== stand.id).slice(0, 4);
         <div class="meta-grid">
           <div class="meta-item">
             <span class="meta-label">Japanisch</span>
-            <span class="meta-jp">{stand.nameJP}</span>
+            <span class="meta-jp">{stand.nameJP} <span class="romanisch">({toRomanisch(stand.id)})</span></span>
           </div>
           <div class="meta-item">
             <span class="meta-label">Deutsch</span>
@@ -72,7 +74,7 @@ const andere = dachi.filter(d => d.id !== stand.id).slice(0, 4);
             {andere.map(d => (
               <li>
                 <a href={`${base}staende/${d.id}`}>
-                  <span class="vk-jp">{d.nameJP}</span>
+                  <span class="vk-jp">{d.nameJP} <span class="romanisch">({toRomanisch(d.id)})</span></span>
                   <span class="vk-de">{d.nameDE}</span>
                 </a>
               </li>
@@ -85,7 +87,6 @@ const andere = dachi.filter(d => d.id !== stand.id).slice(0, 4);
 </Layout>
 
 <style>
-  .h1-de { font-size: 1.1rem; font-weight: 400; opacity: 0.65; margin-left: 0.5rem; }
 
   .detail-grid { display: grid; grid-template-columns: 1fr 340px; gap: 3rem; }
 

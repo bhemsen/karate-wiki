@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { techniken, kategoriefarben, type Kategorie } from '../../data/techniken';
+import { toRomanisch } from '../../utils/romanisch';
 const base = import.meta.env.BASE_URL;
 const kategorien: Kategorie[] = ['Tsuki', 'Uke', 'Geri', 'Uchi'];
 const katNames: Record<Kategorie, string> = { Tsuki: 'Stöße', Uke: 'Blöcke', Geri: 'Tritte', Uchi: 'Schläge' };
@@ -31,7 +32,7 @@ const katNames: Record<Kategorie, string> = { Tsuki: 'Stöße', Uke: 'Blöcke', 
             <span class="badge" style={`background: ${kategoriefarben[t.kategorie]}`}>{t.kategorie}</span>
             <span class="schwierigkeit">{t.schwierigkeit}</span>
           </div>
-          <p class="technik-jp">{t.nameJP}</p>
+          <p class="technik-jp">{t.nameJP} <span class="romanisch">({toRomanisch(t.id)})</span></p>
           <h2 class="technik-name">{t.nameDE}</h2>
           <p class="technik-desc">{t.beschreibung.slice(0, 100)}…</p>
           <p class="technik-kyu">Prüfungsrelevant ab {t.kyu}. Kyu</p>

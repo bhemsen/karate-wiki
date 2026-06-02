@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { dachi, type Schwierigkeit } from '../../data/dachi';
+import { toRomanisch } from '../../utils/romanisch';
 const base = import.meta.env.BASE_URL;
 const schwierigkeitFarbe: Record<Schwierigkeit, string> = {
   'Anfänger': '#27AE60', 'Mittel': '#E67E22', 'Fortgeschritten': '#C0392B'
@@ -26,7 +27,7 @@ const schwierigkeitFarbe: Record<Schwierigkeit, string> = {
               </svg>
             </div>
             <div class="stand-info">
-              <p class="stand-jp">{d.nameJP}</p>
+              <p class="stand-jp">{d.nameJP} <span class="romanisch">({toRomanisch(d.id)})</span></p>
               <h2 class="stand-name">{d.nameDE}</h2>
               <span class="badge" style={`background: ${schwierigkeitFarbe[d.schwierigkeit]}`}>{d.schwierigkeit}</span>
             </div>

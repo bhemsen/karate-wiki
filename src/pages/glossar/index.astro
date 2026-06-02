@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { glossar, type GlossarKategorie } from '../../data/glossar';
+import { toRomanisch } from '../../utils/romanisch';
 const base = import.meta.env.BASE_URL;
 
 const kategorien: GlossarKategorie[] = ['Technik', 'Dojo-Etikette', 'Philosophie', 'Körper', 'Zählen'];
@@ -34,7 +35,7 @@ const kategoriefarbe: Record<GlossarKategorie, string> = {
         <div class="glossar-eintrag" data-kat={eintrag.kategorie} id={eintrag.id}>
           <div class="eintrag-header">
             <div class="eintrag-left">
-              <span class="eintrag-jp">{eintrag.begriffJP}</span>
+              <span class="eintrag-jp">{eintrag.begriffJP} <span class="romanisch">({toRomanisch(eintrag.id)})</span></span>
               <span class="eintrag-aussprache">[{eintrag.aussprache}]</span>
             </div>
             <span class="badge" style={`background: ${kategoriefarbe[eintrag.kategorie]}`}>{eintrag.kategorie}</span>
