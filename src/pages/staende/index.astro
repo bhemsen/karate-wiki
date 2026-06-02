@@ -9,9 +9,9 @@ const schwierigkeitFarbe: Record<Schwierigkeit, string> = {
 <Layout title="Stände – Dachi" description="Alle 12 Shotokan Stände (Dachi) mit Erklärung von Fußstellung, Gewichtsverteilung und Anwendung.">
   <div class="page-header">
     <div class="page-header-inner">
-      <p class="breadcrumb"><a href={base}>Startseite</a> › Stände</p>
-      <h1>立ち Dachi – Stände</h1>
-      <p class="subtitle">{dachi.length} Grundstände im Shotokan Karate</p>
+      <p class="breadcrumb"><a href={base}>Startseite</a> <span class="sep">›</span> Stände</p>
+      <h1><span class="jp">立ち方</span> Stände</h1>
+      <p class="subtitle">{dachi.length} Shotokan Stände (Dachi) mit Beschreibung und Schwierigkeitsgrad</p>
     </div>
   </div>
 
@@ -19,12 +19,19 @@ const schwierigkeitFarbe: Record<Schwierigkeit, string> = {
     <div class="grid-2">
       {dachi.map(d => (
         <a href={`${base}staende/${d.id}`} class="card stand-card">
-          <div class="card-header">
-            <span class="badge" style={`background: ${schwierigkeitFarbe[d.schwierigkeit]}`}>{d.schwierigkeit}</span>
+          <div class="card-inner">
+            <div class="stand-ill">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3">
+                <circle cx="12" cy="5" r="2.5"/><path d="M12 8v5m0 0-3 4m3-4 3 4"/>
+              </svg>
+            </div>
+            <div class="stand-info">
+              <p class="stand-jp">{d.nameJP}</p>
+              <h2 class="stand-name">{d.nameDE}</h2>
+              <span class="badge" style={`background: ${schwierigkeitFarbe[d.schwierigkeit]}`}>{d.schwierigkeit}</span>
+            </div>
           </div>
-          <p class="stand-jp">{d.nameJP}</p>
-          <h2 class="stand-name">{d.nameDE}</h2>
-          <p class="stand-desc">{d.beschreibung.slice(0, 130)}…</p>
+          <p class="stand-desc">{d.beschreibung.slice(0, 110)}…</p>
         </a>
       ))}
     </div>
@@ -32,10 +39,21 @@ const schwierigkeitFarbe: Record<Schwierigkeit, string> = {
 </Layout>
 
 <style>
-  h1 { font-size: 2rem; margin-bottom: .25rem; }
-  .subtitle { color: var(--text-muted); font-size: .9rem; }
-  .card-header { margin-bottom: .75rem; }
-  .stand-jp { font-size: 1.75rem; color: var(--primary); line-height: 1; margin-bottom: .25rem; }
-  .stand-name { font-size: 1.05rem; margin-bottom: .75rem; }
-  .stand-desc { font-size: .875rem; color: var(--text-muted); line-height: 1.6; }
+  .card-inner { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.75rem; }
+  .stand-ill {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    background: #F5F7F8;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+  }
+  .stand-info { flex: 1; }
+  .stand-jp { font-size: 1.3rem; color: var(--primary); line-height: 1; margin-bottom: 0.15rem; }
+  .stand-name { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .stand-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
 </style>

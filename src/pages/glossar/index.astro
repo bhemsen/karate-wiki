@@ -11,14 +11,12 @@ const kategoriefarbe: Record<GlossarKategorie, string> = {
   'Körper': '#E67E22',
   'Zählen': '#7F8C8D',
 };
-
-const nach_buchstaben = glossar.slice().sort((a, b) => a.begriffJP.localeCompare(b.begriffJP));
 ---
 <Layout title="Glossar – Japanische Karate-Begriffe" description="Über 50 japanische Karate-Begriffe mit Aussprache, Übersetzung und Erklärung auf Deutsch.">
   <div class="page-header">
     <div class="page-header-inner">
-      <p class="breadcrumb"><a href={base}>Startseite</a> › Glossar</p>
-      <h1>語彙 Glossar</h1>
+      <p class="breadcrumb"><a href={base}>Startseite</a> <span class="sep">›</span> Glossar</p>
+      <h1><span class="jp">語彙</span> Glossar</h1>
       <p class="subtitle">{glossar.length} japanische Karate-Begriffe mit Aussprache und Erklärung</p>
     </div>
   </div>
@@ -35,7 +33,7 @@ const nach_buchstaben = glossar.slice().sort((a, b) => a.begriffJP.localeCompare
       {glossar.map(eintrag => (
         <div class="glossar-eintrag" data-kat={eintrag.kategorie} id={eintrag.id}>
           <div class="eintrag-header">
-            <div>
+            <div class="eintrag-left">
               <span class="eintrag-jp">{eintrag.begriffJP}</span>
               <span class="eintrag-aussprache">[{eintrag.aussprache}]</span>
             </div>
@@ -50,23 +48,30 @@ const nach_buchstaben = glossar.slice().sort((a, b) => a.begriffJP.localeCompare
 </Layout>
 
 <style>
-  h1 { font-size: 2rem; margin-bottom: .25rem; }
-  .subtitle { color: var(--text-muted); font-size: .9rem; }
-  .glossar-list { display: flex; flex-direction: column; gap: 1rem; }
+  .glossar-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
   .glossar-eintrag {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1.25rem 1.5rem;
-    transition: border-color .15s;
+    transition: border-color 0.15s;
   }
   .glossar-eintrag:hover { border-color: var(--primary); }
   .glossar-eintrag[hidden] { display: none; }
-  .eintrag-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: .5rem; gap: 1rem; }
-  .eintrag-jp { font-size: 1.5rem; color: var(--primary); line-height: 1; margin-right: .75rem; }
-  .eintrag-aussprache { font-size: .875rem; color: var(--text-muted); font-style: italic; }
-  .eintrag-de { font-size: 1rem; margin-bottom: .5rem; font-weight: 600; }
-  .eintrag-erklaerung { font-size: .875rem; color: var(--text-muted); line-height: 1.7; }
+
+  .eintrag-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+  }
+  .eintrag-left { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+  .eintrag-jp { font-size: 1.5rem; color: var(--primary); line-height: 1; font-family: var(--font-head); }
+  .eintrag-aussprache { font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
+  .eintrag-de { font-size: 1rem; margin-bottom: 0.4rem; font-weight: 600; }
+  .eintrag-erklaerung { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
 </style>
 
 <script>

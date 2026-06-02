@@ -5,6 +5,12 @@ interface Props {
 }
 const { title, description = 'Die vollständige Shotokan Karate Referenz – Techniken, Kata, Stände, Gurtprüfungen und Glossar.' } = Astro.props;
 const base = import.meta.env.BASE_URL;
+
+const pathname = Astro.url.pathname;
+const b = base.endsWith('/') ? base.slice(0, -1) : base;
+function isActive(segment: string) {
+  return pathname.startsWith(`${b}/${segment}`);
+}
 ---
 <!doctype html>
 <html lang="de">
@@ -22,10 +28,22 @@ const base = import.meta.env.BASE_URL;
     <nav class="nav">
       <div class="nav-inner">
         <a href={base} class="nav-logo">
-          <span class="logo-kanji">空手道</span>
+          <span class="logo-kanji">空</span>
           <span class="logo-text">Karate Wiki</span>
         </a>
         <ul class="nav-links">
+          <li><a href={`${base}kihon`} class={isActive('kihon') ? 'active' : ''}>Kihon</a></li>
+          <li><a href={`${base}kata`} class={isActive('kata') ? 'active' : ''}>Kata</a></li>
+          <li><a href={`${base}staende`} class={isActive('staende') ? 'active' : ''}>Stände</a></li>
+          <li><a href={`${base}gurtpruefungen`} class={isActive('gurtpruefungen') ? 'active' : ''}>Gurtprüfungen</a></li>
+          <li><a href={`${base}glossar`} class={isActive('glossar') ? 'active' : ''}>Glossar</a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav-mobile" id="nav-mobile" hidden>
+        <ul>
           <li><a href={`${base}kihon`}>Kihon</a></li>
           <li><a href={`${base}kata`}>Kata</a></li>
           <li><a href={`${base}staende`}>Stände</a></li>
@@ -41,12 +59,28 @@ const base = import.meta.env.BASE_URL;
 
     <footer class="footer">
       <div class="footer-inner">
-        <p>Karate Wiki – Shotokan Referenz</p>
-        <p class="footer-sources">Quellen: JKA (Japan Karate Association) · Nakayama, M. <em>Best Karate</em> (Bd. 1–11) · Kanazawa, H. <em>Karate Fighting Techniques</em></p>
+        <p class="footer-logo"><span class="footer-kanji">空手道</span> Karate Wiki</p>
+        <p class="footer-sources">Quellen: JKA (Japan Karate Association) · Nakayama, M. <em>Best Karate</em> Bd. 1–11 · Kanazawa, H. <em>Karate Fighting Techniques</em></p>
+        <p class="footer-note">Alle Angaben nach JKA-Standard. Regionale Verbände können abweichende Prüfungsordnungen haben.</p>
       </div>
     </footer>
   </body>
 </html>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const mobile = document.getElementById('nav-mobile');
+  toggle?.addEventListener('click', () => {
+    const open = mobile?.hasAttribute('hidden') === false;
+    if (open) {
+      mobile?.setAttribute('hidden', '');
+      toggle.setAttribute('aria-expanded', 'false');
+    } else {
+      mobile?.removeAttribute('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+</script>
 
 <style is:global>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,6 +104,7 @@ const base = import.meta.env.BASE_URL;
   h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; }
   a { color: inherit; text-decoration: none; }
 
+  /* ── Navigation ── */
   .nav {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
@@ -93,53 +128,119 @@ const base = import.meta.env.BASE_URL;
     gap: 0.5rem;
     font-family: var(--font-head);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    color: var(--text);
   }
   .logo-kanji {
     color: var(--primary);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    line-height: 1;
   }
   .nav-links {
     display: flex;
     list-style: none;
-    gap: 0.25rem;
+    gap: 0.125rem;
   }
   .nav-links a {
+    display: block;
     padding: 0.4rem 0.75rem;
     border-radius: var(--radius);
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--text-muted);
     transition: color 0.15s, background 0.15s;
+    position: relative;
   }
-  .nav-links a:hover {
+  .nav-links a:hover { color: var(--primary); background: #FFF5F4; }
+  .nav-links a.active {
     color: var(--primary);
-    background: #FFF0EE;
+    font-weight: 600;
+  }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0.75rem;
+    right: 0.75rem;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
   }
 
-  .page-header {
+  /* ── Mobile Nav Toggle ── */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: 0.2s;
+  }
+  .nav-mobile {
+    border-top: 1px solid var(--border);
     background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 3rem 2rem;
+    padding: 0.75rem 2rem 1rem;
+  }
+  .nav-mobile ul { list-style: none; display: flex; flex-direction: column; gap: 0.25rem; }
+  .nav-mobile a {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .nav-mobile a:hover { color: var(--primary); background: #FFF5F4; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+  }
+
+  /* ── Page Header (dark) ── */
+  .page-header {
+    background: var(--text);
+    padding: 2.5rem 2rem 3rem;
   }
   .page-header-inner {
     max-width: 1200px;
     margin: 0 auto;
   }
-  .breadcrumb {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 0.75rem;
-  }
-  .breadcrumb a { color: var(--primary); }
-  .breadcrumb a:hover { text-decoration: underline; }
+  .page-header h1 { color: #fff; font-size: 2rem; margin-bottom: 0.25rem; }
+  .page-header h1 .jp { color: var(--primary); }
+  .page-header .subtitle { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+  .page-header .header-badges { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  .page-header .header-meta { font-size: 0.8rem; color: rgba(255,255,255,0.55); }
 
+  .breadcrumb {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .breadcrumb a { color: rgba(255,255,255,0.65); transition: color 0.15s; }
+  .breadcrumb a:hover { color: #fff; }
+  .breadcrumb .sep { opacity: 0.4; }
+
+  /* ── Container ── */
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 3rem 2rem;
   }
 
+  /* ── Badge ── */
   .badge {
     display: inline-block;
     padding: 0.2rem 0.6rem;
@@ -150,21 +251,28 @@ const base = import.meta.env.BASE_URL;
     color: #fff;
   }
 
+  /* ── Card ── */
   .card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1.5rem;
     transition: border-color 0.15s, box-shadow 0.15s;
+    display: block;
   }
   .card:hover {
     border-color: var(--primary);
-    box-shadow: 0 4px 12px rgba(192,57,43,0.08);
+    box-shadow: 0 4px 16px rgba(192,57,43,0.08);
   }
 
-  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+  /* ── Grids ── */
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
   .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 1.5rem; }
+  @media (max-width: 480px) {
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  }
 
+  /* ── Filter Bar ── */
   .filter-bar {
     display: flex;
     gap: 0.5rem;
@@ -181,27 +289,46 @@ const base = import.meta.env.BASE_URL;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.15s;
+    font-family: var(--font-body);
   }
-  .filter-btn:hover, .filter-btn.active {
+  .filter-btn:hover { color: var(--primary); border-color: var(--primary); }
+  .filter-btn.active {
     background: var(--primary);
     border-color: var(--primary);
     color: #fff;
   }
 
+  /* ── Section title ── */
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* ── Footer ── */
   .footer {
-    background: var(--text);
-    color: #94A3B8;
-    padding: 2rem;
+    background: #1A252F;
+    color: rgba(255,255,255,0.5);
+    padding: 2.5rem 2rem;
     margin-top: 6rem;
   }
   .footer-inner {
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    font-size: 0.875rem;
   }
-  .footer-sources { font-size: 0.8rem; opacity: 0.7; }
+  .footer-logo {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 0.25rem;
+  }
+  .footer-kanji { color: var(--primary); }
+  .footer-sources { font-size: 0.8rem; }
+  .footer-note { font-size: 0.75rem; opacity: 0.6; }
 </style>

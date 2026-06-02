@@ -6,35 +6,35 @@ const base = import.meta.env.BASE_URL;
 <Layout title="Gurtprüfungen – JKA Shotokan" description="JKA Shotokan Gurtprüfungsanforderungen von 9. Kyu (Weiß zu Gelb) bis 1. Dan (Shodan).">
   <div class="page-header">
     <div class="page-header-inner">
-      <p class="breadcrumb"><a href={base}>Startseite</a> › Gurtprüfungen</p>
-      <h1>帯 Gurtprüfungen</h1>
+      <p class="breadcrumb"><a href={base}>Startseite</a> <span class="sep">›</span> Gurtprüfungen</p>
+      <h1><span class="jp">帯</span> Gurtprüfungen</h1>
       <p class="subtitle">JKA-Standard · 9. Kyu bis 1. Dan · Shotokan Karate</p>
     </div>
   </div>
 
   <div class="container">
     <div class="pruefungen-list">
-      {gurtpruefungen.map((p, i) => (
+      {gurtpruefungen.map((p) => (
         <div class="pruefung-card">
           <div class="pruefung-header">
             <div class="gurt-visual">
               <div class="gurt-streifen" style={`background: ${p.gurtHex}`}></div>
-              {p.kyu === 0 && <div class="dan-badge">黒帯</div>}
+              {p.kyu === 0 && <span class="dan-badge">黒帯</span>}
             </div>
-            <div>
+            <div class="pruefung-info">
               <h2 class="pruefung-titel">{p.pruefungsname}</h2>
               <p class="pruefung-meta">{p.gurtfarbe} · Mindesttraining: {p.mindestTrainingszeit} Monate</p>
             </div>
           </div>
 
           <div class="pruefung-body">
-            <div class="anforderung-block">
-              <h3>Kihon-Anforderungen</h3>
+            <div class="anf-block">
+              <h3>Kihon</h3>
               <ul>
                 {p.kihonAnforderungen.map(k => <li>{k}</li>)}
               </ul>
             </div>
-            <div class="anforderung-block">
+            <div class="anf-block">
               <h3>Kata</h3>
               <ul>
                 {p.kata.map(k => (
@@ -44,11 +44,11 @@ const base = import.meta.env.BASE_URL;
                 ))}
               </ul>
             </div>
-            <div class="anforderung-block">
+            <div class="anf-block">
               <h3>Kumite</h3>
               <p>{p.kumite}</p>
             </div>
-            <div class="anforderung-block">
+            <div class="anf-block">
               <h3>Weitere Anforderungen</h3>
               <p>{p.sonstigeAnforderungen}</p>
             </div>
@@ -65,52 +65,71 @@ const base = import.meta.env.BASE_URL;
 </Layout>
 
 <style>
-  h1 { font-size: 2rem; margin-bottom: .25rem; }
-  .subtitle { color: var(--text-muted); font-size: .9rem; }
   .pruefungen-list { display: flex; flex-direction: column; gap: 1.5rem; }
-  .pruefung-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+
+  .pruefung-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow 0.15s;
+  }
+  .pruefung-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
   .pruefung-header {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1.5rem;
     padding: 1.25rem 1.5rem;
     border-bottom: 1px solid var(--border);
   }
-  .gurt-visual { position: relative; display: flex; align-items: center; justify-content: center; }
+  .gurt-visual { position: relative; display: flex; align-items: center; flex-shrink: 0; }
   .gurt-streifen {
-    width: 48px;
-    height: 12px;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    width: 56px;
+    height: 14px;
+    border-radius: 7px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   }
   .dan-badge {
     position: absolute;
-    font-size: .6rem;
-    color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.55rem;
+    color: #D4AF37;
     font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
+    white-space: nowrap;
+    font-family: var(--font-head);
   }
-  .pruefung-titel { font-size: 1.1rem; margin-bottom: .1rem; }
-  .pruefung-meta { font-size: .8rem; color: var(--text-muted); }
+  .pruefung-titel { font-size: 1.05rem; margin-bottom: 0.15rem; }
+  .pruefung-meta { font-size: 0.8rem; color: var(--text-muted); }
+
   .pruefung-body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
   }
-  .anforderung-block {
+  .anf-block {
     padding: 1.25rem 1.5rem;
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
-  .anforderung-block:nth-child(even) { border-right: none; }
-  .anforderung-block:nth-last-child(-n+2) { border-bottom: none; }
-  .anforderung-block h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); margin-bottom: .75rem; }
-  .anforderung-block ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
-  .anforderung-block li { font-size: .875rem; display: flex; gap: .5rem; align-items: flex-start; }
-  .anforderung-block li::before { content: '›'; color: var(--primary); flex-shrink: 0; }
-  .anforderung-block p { font-size: .875rem; line-height: 1.6; color: var(--text-muted); }
-  .anforderung-block a { color: var(--primary); }
-  .anforderung-block a:hover { text-decoration: underline; }
+  .anf-block:nth-child(even) { border-right: none; }
+  .anf-block:nth-last-child(-n+2) { border-bottom: none; }
+  .anf-block h3 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+  .anf-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+  .anf-block li { font-size: 0.875rem; display: flex; gap: 0.5rem; align-items: baseline; }
+  .anf-block li::before { content: '›'; color: var(--primary); flex-shrink: 0; }
+  .anf-block p { font-size: 0.875rem; line-height: 1.65; color: var(--text-muted); }
+  .anf-block a { color: var(--primary); transition: text-decoration 0.1s; }
+  .anf-block a:hover { text-decoration: underline; }
+
   .quellen-box {
     margin-top: 3rem;
     background: #FFF8F7;
@@ -118,7 +137,13 @@ const base = import.meta.env.BASE_URL;
     border-radius: var(--radius);
     padding: 1.5rem;
   }
-  .quellen-box h2 { font-size: 1rem; margin-bottom: .75rem; color: var(--primary); }
-  .quellen-box p { font-size: .875rem; line-height: 1.7; color: var(--text-muted); }
-  @media (max-width: 768px) { .pruefung-body { grid-template-columns: 1fr; } .anforderung-block { border-right: none; } }
+  .quellen-box h2 { font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--primary); }
+  .quellen-box p { font-size: 0.875rem; line-height: 1.75; color: var(--text-muted); }
+
+  @media (max-width: 768px) {
+    .pruefung-body { grid-template-columns: 1fr; }
+    .anf-block { border-right: none; }
+    .anf-block:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .anf-block:last-child { border-bottom: none; }
+  }
 </style>

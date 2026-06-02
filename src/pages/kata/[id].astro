@@ -11,74 +11,160 @@ const base = import.meta.env.BASE_URL;
 const schwierigkeitFarbe: Record<Schwierigkeit, string> = {
   'Anfänger': '#27AE60', 'Mittel': '#E67E22', 'Fortgeschritten': '#C0392B', 'Meister': '#8E44AD'
 };
-const verwandte = kata.filter(k => k.gruppe === eintrag.gruppe && k.id !== eintrag.id).slice(0, 3);
+const verwandte = kata.filter(k => k.gruppe === eintrag.gruppe && k.id !== eintrag.id).slice(0, 4);
 ---
 <Layout title={`${eintrag.name}`} description={eintrag.beschreibung}>
   <div class="page-header">
     <div class="page-header-inner">
-      <p class="breadcrumb"><a href={base}>Startseite</a> › <a href={`${base}kata`}>Kata</a> › {eintrag.name}</p>
-      <div style="display:flex;gap:.75rem;align-items:center;margin-top:.75rem">
+      <p class="breadcrumb">
+        <a href={base}>Startseite</a>
+        <span class="sep">›</span>
+        <a href={`${base}kata`}>Kata</a>
+        <span class="sep">›</span>
+        {eintrag.name}
+      </p>
+      <h1>{eintrag.name}</h1>
+      <p class="subtitle">„{eintrag.bedeutung}"</p>
+      <div class="header-badges">
         <span class="badge" style={`background: ${schwierigkeitFarbe[eintrag.schwierigkeit]}`}>{eintrag.schwierigkeit}</span>
-        <span style="font-size:.8rem;color:var(--text-muted)">{eintrag.gruppe}-Kata · {eintrag.bewegungsanzahl} Bewegungen</span>
+        <span class="header-meta">{eintrag.gruppe}-Kata · {eintrag.bewegungsanzahl} Bewegungen · Ab {eintrag.erstePruefung}</span>
       </div>
     </div>
   </div>
 
   <div class="container">
     <div class="detail-grid">
-      <div class="illustration-box">
-        <div class="illustration-placeholder">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v5m0 0-3 4m3-4 3 4M8 12H4m4 0 1 2M16 12h4m-4 0-1 2"/></svg>
-          <p>Embusen: {eintrag.name}</p>
+      <div>
+        <div class="kata-stats-box">
+          <div class="stat-item">
+            <span class="stat-kanji">{eintrag.name.split(' ')[0]}</span>
+            <span class="stat-label">Japanischer Name</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">{eintrag.bewegungsanzahl}</span>
+            <span class="stat-label">Bewegungen</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">{eintrag.erstePruefung}</span>
+            <span class="stat-label">Erste Prüfung</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">{eintrag.gruppe}</span>
+            <span class="stat-label">Gruppe</span>
+          </div>
         </div>
-        <div class="kata-stats">
-          <div class="stat-row"><span>Bewegungen</span><strong>{eintrag.bewegungsanzahl}</strong></div>
-          <div class="stat-row"><span>Gruppe</span><strong>{eintrag.gruppe}</strong></div>
-          <div class="stat-row"><span>Ab Prüfung</span><strong>{eintrag.erstePruefung}</strong></div>
+
+        <div class="info-box">
+          <h2>Über diese Kata</h2>
+          <p>{eintrag.beschreibung}</p>
         </div>
       </div>
 
       <div>
-        <h1 class="kata-titel">{eintrag.name}</h1>
-        <p class="kata-bedeutung-gross">„{eintrag.bedeutung}"</p>
-
-        <div class="info-box">
-          <h2>Beschreibung</h2>
-          <p>{eintrag.beschreibung}</p>
+        <div class="illustration-box">
+          <div class="illustration-placeholder">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="5" r="2.5"/>
+              <path d="M12 8v5m0 0-3 4m3-4 3 4"/>
+            </svg>
+            <p class="ill-label">Embusen</p>
+            <p class="ill-name">{eintrag.name}</p>
+          </div>
         </div>
+
+        {verwandte.length > 0 && (
+          <div class="verwandte-box">
+            <h3>Weitere {eintrag.gruppe}-Kata</h3>
+            <ul class="verwandte-list">
+              {verwandte.map(v => (
+                <li>
+                  <a href={`${base}kata/${v.id}`}>
+                    <span class="vk-name">{v.name}</span>
+                    <span class="vk-meta">{v.bewegungsanzahl} Bew.</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
-
-    {verwandte.length > 0 && (
-      <div class="verwandte">
-        <h2>Weitere {eintrag.gruppe}-Kata</h2>
-        <div class="grid-3">
-          {verwandte.map(v => (
-            <a href={`${base}kata/${v.id}`} class="card">
-              <span class="badge" style={`background: ${schwierigkeitFarbe[v.schwierigkeit]}`}>{v.schwierigkeit}</span>
-              <p style="font-size:1.1rem;font-weight:700;margin:.5rem 0 .25rem">{v.name}</p>
-              <p style="font-size:.8rem;color:var(--primary);font-style:italic">„{v.bedeutung}"</p>
-            </a>
-          ))}
-        </div>
-      </div>
-    )}
   </div>
 </Layout>
 
 <style>
-  .detail-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; margin-bottom: 4rem; }
-  .illustration-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-  .illustration-placeholder { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .75rem; color: var(--text-muted); padding: 2rem; text-align: center; }
-  .illustration-placeholder svg { opacity: .3; }
-  .kata-stats { border-top: 1px solid var(--border); padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
-  .stat-row { display: flex; justify-content: space-between; font-size: .875rem; }
-  .stat-row span { color: var(--text-muted); }
-  .kata-titel { font-size: 2rem; margin-bottom: .25rem; }
-  .kata-bedeutung-gross { font-size: 1rem; color: var(--primary); font-style: italic; margin-bottom: 2rem; }
-  .info-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
-  .info-box h2 { font-size: .875rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); margin-bottom: .75rem; }
-  .info-box p { line-height: 1.8; }
-  .verwandte h2 { font-size: 1.25rem; margin-bottom: 1.5rem; }
-  @media (max-width: 768px) { .detail-grid { grid-template-columns: 1fr; } }
+  .detail-grid { display: grid; grid-template-columns: 1fr 380px; gap: 3rem; }
+
+  .kata-stats-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  .stat-item {
+    padding: 1.25rem 1.5rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .stat-item:nth-child(even) { border-right: none; }
+  .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+  .stat-kanji { font-size: 1.4rem; color: var(--primary); font-family: var(--font-head); font-weight: 700; line-height: 1; }
+  .stat-num { font-size: 1.25rem; font-weight: 700; font-family: var(--font-head); color: var(--text); }
+  .stat-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); font-weight: 600; }
+
+  .info-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+  .info-box h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 700; }
+  .info-box p { line-height: 1.85; font-size: 0.95rem; }
+
+  .illustration-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .illustration-placeholder {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    background: #F5F7F8;
+  }
+  .illustration-placeholder svg { opacity: 0.25; }
+  .ill-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  .ill-name { font-size: 0.85rem; color: var(--primary); }
+
+  .verwandte-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+  }
+  .verwandte-box h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 700; }
+  .verwandte-list { list-style: none; display: flex; flex-direction: column; gap: 0.25rem; }
+  .verwandte-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: var(--primary);
+    transition: background 0.15s;
+  }
+  .verwandte-list a:hover { background: #FFF5F4; }
+  .vk-name { font-weight: 500; }
+  .vk-meta { font-size: 0.75rem; color: var(--text-muted); }
+
+  @media (max-width: 900px) { .detail-grid { grid-template-columns: 1fr; } }
 </style>

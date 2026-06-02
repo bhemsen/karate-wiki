@@ -8,9 +8,9 @@ const katNames: Record<Kategorie, string> = { Tsuki: 'Stöße', Uke: 'Blöcke', 
 <Layout title="Kihon – Grundtechniken" description="Alle Shotokan Grundtechniken: Stöße (Tsuki), Blöcke (Uke), Tritte (Geri) und Schläge (Uchi) mit Ausführungsbeschreibung.">
   <div class="page-header">
     <div class="page-header-inner">
-      <p class="breadcrumb"><a href={base}>Startseite</a> › Kihon</p>
-      <h1>基本 Kihon</h1>
-      <p class="subtitle">Grundtechniken · {techniken.length} Techniken</p>
+      <p class="breadcrumb"><a href={base}>Startseite</a> <span class="sep">›</span> Kihon</p>
+      <h1><span class="jp">基本</span> Kihon</h1>
+      <p class="subtitle">Grundtechniken · {techniken.length} Techniken · JKA Shotokan</p>
     </div>
   </div>
 
@@ -18,7 +18,7 @@ const katNames: Record<Kategorie, string> = { Tsuki: 'Stöße', Uke: 'Blöcke', 
     <div class="filter-bar" id="filter-bar">
       <button class="filter-btn active" data-kat="alle">Alle ({techniken.length})</button>
       {kategorien.map(k => (
-        <button class="filter-btn" data-kat={k} style={`--kat-color: ${kategoriefarben[k]}`}>
+        <button class="filter-btn" data-kat={k}>
           {k} – {katNames[k]} ({techniken.filter(t => t.kategorie === k).length})
         </button>
       ))}
@@ -27,14 +27,14 @@ const katNames: Record<Kategorie, string> = { Tsuki: 'Stöße', Uke: 'Blöcke', 
     <div class="grid-3" id="technik-grid">
       {techniken.map(t => (
         <a href={`${base}kihon/${t.id}`} class="card technik-card" data-kat={t.kategorie}>
-          <div class="card-header">
+          <div class="card-top">
             <span class="badge" style={`background: ${kategoriefarben[t.kategorie]}`}>{t.kategorie}</span>
             <span class="schwierigkeit">{t.schwierigkeit}</span>
           </div>
           <p class="technik-jp">{t.nameJP}</p>
           <h2 class="technik-name">{t.nameDE}</h2>
           <p class="technik-desc">{t.beschreibung.slice(0, 100)}…</p>
-          <p class="technik-kyu">Ab {t.kyu}. Kyu</p>
+          <p class="technik-kyu">Prüfungsrelevant ab {t.kyu}. Kyu</p>
         </a>
       ))}
     </div>
@@ -42,9 +42,7 @@ const katNames: Record<Kategorie, string> = { Tsuki: 'Stöße', Uke: 'Blöcke', 
 </Layout>
 
 <style>
-  h1 { font-size: 2rem; margin-bottom: 0.25rem; }
-  .subtitle { color: var(--text-muted); font-size: 0.9rem; }
-  .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+  .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
   .schwierigkeit { font-size: 0.75rem; color: var(--text-muted); }
   .technik-jp { font-size: 1.5rem; color: var(--primary); margin-bottom: 0.25rem; line-height: 1; }
   .technik-name { font-size: 1.05rem; margin-bottom: 0.75rem; }
@@ -56,15 +54,12 @@ const katNames: Record<Kategorie, string> = { Tsuki: 'Stöße', Uke: 'Blöcke', 
 <script>
   const btns = document.querySelectorAll<HTMLButtonElement>('#filter-bar .filter-btn');
   const cards = document.querySelectorAll<HTMLElement>('#technik-grid .technik-card');
-
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const kat = btn.dataset.kat;
-      cards.forEach(card => {
-        card.hidden = kat !== 'alle' && card.dataset.kat !== kat;
-      });
+      cards.forEach(card => { card.hidden = kat !== 'alle' && card.dataset.kat !== kat; });
     });
   });
 </script>
