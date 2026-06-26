@@ -1,0 +1,106 @@
+---
+import { embusenSVG } from '../data/embusen';
+
+interface Props {
+  kataId: string;
+  name: string;
+}
+
+const { kataId, name } = Astro.props;
+const content = embusenSVG[kataId];
+---
+
+<div class="embusen-wrap">
+  {content ? (
+    <svg
+      viewBox="0 0 200 200"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label={`Embusen: ${name}`}
+      role="img"
+      class="embusen-svg"
+    >
+      <defs>
+        <marker id="emb-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+          <polygon points="0,0 7,3.5 0,7" fill="currentColor"/>
+        </marker>
+      </defs>
+
+      <!-- Subtle grid background -->
+      <line x1="100" y1="15" x2="100" y2="185" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
+      <line x1="15" y1="100" x2="185" y2="100" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
+
+      <!-- Compass labels -->
+      <text x="100" y="11" text-anchor="middle" class="compass-label">N</text>
+      <text x="100" y="197" text-anchor="middle" class="compass-label">S</text>
+      <text x="8"   y="104" text-anchor="middle" class="compass-label">W</text>
+      <text x="192" y="104" text-anchor="middle" class="compass-label">O</text>
+
+      <!-- Embusen path content -->
+      <Fragment set:html={content} />
+    </svg>
+
+    <p class="embusen-caption">Embusen · {name}</p>
+
+  ) : (
+    <div class="embusen-fallback">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 8v4m0 4h.01"/>
+      </svg>
+      <p>Embusen wird ergänzt</p>
+    </div>
+  )}
+</div>
+
+<style>
+  .embusen-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  .embusen-svg {
+    flex: 1;
+    width: 100%;
+    color: var(--primary);
+  }
+
+  .compass-label {
+    font-family: var(--font-head);
+    font-size: 9px;
+    font-weight: 700;
+    fill: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .embusen-caption {
+    padding: 0.6rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: #F9FAFB;
+  }
+
+  .embusen-fallback {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    background: #F5F7F8;
+    text-align: center;
+  }
+  .embusen-fallback svg { opacity: 0.25; }
+  .embusen-fallback p { font-size: 0.8rem; }
+</style>

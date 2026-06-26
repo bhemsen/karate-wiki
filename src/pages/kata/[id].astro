@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { kata, type Schwierigkeit } from '../../data/kata';
 import { kataAblaufMap } from '../../data/kata-ablauf';
+import EmbusenDiagramm from '../../components/EmbusenDiagramm.astro';
 
 export function getStaticPaths() {
   return kata.map(k => ({ params: { id: k.id }, props: { eintrag: k } }));
@@ -63,16 +64,7 @@ const ablauf = kataAblaufMap[eintrag.id];
       </div>
 
       <div>
-        <div class="illustration-box">
-          <div class="illustration-placeholder">
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="5" r="2.5"/>
-              <path d="M12 8v5m0 0-3 4m3-4 3 4"/>
-            </svg>
-            <p class="ill-label">Embusen</p>
-            <p class="ill-name">{eintrag.name}</p>
-          </div>
-        </div>
+        <EmbusenDiagramm kataId={eintrag.id} name={eintrag.name} />
 
         {verwandte.length > 0 && (
           <div class="verwandte-box">
@@ -169,27 +161,6 @@ const ablauf = kataAblaufMap[eintrag.id];
   .info-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
   .info-box h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 700; }
   .info-box p { line-height: 1.85; font-size: 0.95rem; }
-
-  .illustration-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-bottom: 1rem;
-  }
-  .illustration-placeholder {
-    aspect-ratio: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    color: var(--text-muted);
-    background: #F5F7F8;
-  }
-  .illustration-placeholder svg { opacity: 0.25; }
-  .ill-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
-  .ill-name { font-size: 0.85rem; color: var(--primary); }
 
   .verwandte-box {
     background: var(--surface);
