@@ -55,8 +55,13 @@ incorrect technique names, sides, stances, and kiai positions.
 - `KataSchritt.seite` values: `'Links'` | `'Rechts'` | `'Beide'` only — no new values.
 - No `any` in TypeScript; no structural changes to `KataSchritt` or `KataAblauf`.
 - The `emptyAblauf` helper at line ~1111 is a pre-existing unused hint — leave it.
+- `kata-ablauf.ts` is currently ~1,300 lines, exceeding the constitution's 500-line
+  limit. Splitting by domain is explicitly deferred to a future phase; this spec
+  makes targeted corrections only and does not worsen the structural deviation.
 - All 26 kata are in one file; issues are serialised (each depends on the previous)
-  to avoid merge conflicts on the same file.
+  to avoid merge conflicts on the same file. If a later-group issue finds errors
+  introduced by an earlier-group PR, fix them in place within the current PR —
+  do not defer to a follow-on issue.
 
 ## Prior art
 
@@ -66,15 +71,16 @@ incorrect technique names, sides, stances, and kiai positions.
 
 ## Human prerequisites
 
-none — the user confirms corrections by sight (3×/week practitioner of Heian Shodan;
-Wikipedia available for other kata).
+none before implementation begins — no secrets, credentials, or external provisioning
+required. Human verification occurs post-implementation at the milestone QA gate
+(see Verification), not before the implement loop starts.
 
 ## Prior decisions
 
 | Decision | Rationale | Date |
 |---|---|---|
 | Technique names are the primary error category | Confirmed by human at planning gate: Heian Shodan has wrong technique names at certain steps, not merely wrong directions or kiai positions. Other kata likely have the same class of error. | 2026-06-26 |
-| Wikipedia is an accepted supplementary reference | The human has no access to Nakayama's Best Karate books but practices Heian Shodan 3×/week and confirmed Wikipedia as a reliable reference. Implementers may use Wikipedia JKA kata articles alongside their JKA training knowledge. | 2026-06-26 |
+| Wikipedia is an accepted supplementary reference | The human has no access to Nakayama's Best Karate books but practices Heian Shodan 3×/week and confirmed Wikipedia as a reliable reference. Implementers may use Wikipedia JKA kata articles alongside their JKA training knowledge. When Wikipedia and the implementer's JKA training knowledge conflict, prefer training knowledge and flag the discrepancy in the PR description for human review. | 2026-06-26 |
 | Six sequential issues, one per kata group | All 26 kata live in one file (`kata-ablauf.ts`). Parallel subagents editing the same file cause merge conflicts. Sequential dependency (issue N+1 depends on issue N) ensures one subagent works on the file at a time. Groups: Heian 1–5 · Tekki 1–3 · Bassai/Kanku · Jion/Jitte/Jiin/Empi/Hangetsu · Gankaku/Nijushiho/Sochin/Meikyo · Chinte/Unsu/Wankan/Gojushiho. | 2026-06-26 |
 | Implementer applies confident corrections; flags uncertain steps in PR | The human QA gate is the final check. Subagents do not park an issue over uncertainty — they apply their best JKA knowledge and clearly document which steps they changed and why in the PR description. Uncertain corrections are highlighted for human attention at the QA gate. | 2026-06-26 |
 | `vollstaendig: true` stays on all 26 kata | The sequences were already marked complete; the task is to correct errors, not to add missing sequences. | 2026-06-26 |
@@ -96,8 +102,9 @@ Each issue references this spec path in its body.
 - [ ] Human milestone-QA gate: spot-check 5 other kata (at least one from each
       remaining group) against Wikipedia or personal knowledge
 - [ ] No step in any kata has `technik: ''` or an obviously placeholder name
-- [ ] Kiai positions for all 26 kata match the kata count field in `src/data/kata.ts`
-      (`kata.kiai` array introduced in Phase 1)
+- [ ] Kiai positions for all 26 kata match the `kiai: number[]` step-number array
+      in `src/data/kata.ts` (e.g. `kiai: [9, 17]` means `kiai: true` on steps 9 and
+      17 in `kata-ablauf.ts`; introduced in Phase 1)
 
 ## Risks and mitigations
 
