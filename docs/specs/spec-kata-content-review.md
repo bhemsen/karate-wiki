@@ -31,9 +31,7 @@ series).
 - `src/data/kata-ablauf.ts` (step-by-step sequences) — covered in Phase 4:
   unstaged-integration
 - `src/data/embusen.ts` (floor patterns) — covered in Phase 4
-- Adding new fields to the `Kata` interface beyond what is listed above, unless
-  the kiai-point field is accepted at the spec-acceptance gate (see Prior
-  decisions: OPEN row)
+- No additional new fields beyond the accepted `kiai: number[]` (resolved at gate)
 - Changes to page templates or components
 - Kihon, Dachi, Gurtprüfungen, or Glossar content — covered in Phases 2 and 3
 
@@ -71,8 +69,8 @@ copies of Nakayama's Best Karate are available for cross-checking.
 | Correctness authority is Nakayama's Best Karate (Kodansha 1977–1986) | Established in prior-art.md during inception; canonical JKA standard | 2026-06-26 |
 | Implementation reference is Claude's trained JKA knowledge | No external API; Claude has extensive knowledge of JKA Shotokan kata from training; any genuinely uncertain items are flagged for human review | 2026-06-26 |
 | All 6 existing Kata fields are in scope for review | Constitution requires "no field may be empty or placeholder"; the user confirmed all content areas need overhaul; accuracy across all fields is the acceptance criterion | 2026-06-26 |
-| OPEN — should `kiai: number[]` be added to the Kata interface? | Prior art (risingsun.ie) identifies kiai points as a useful missing field. Adding it is a schema change affecting all 26 entries. Resolved at the spec-acceptance gate. | — |
-| OPEN — PR granularity: one PR for all 26 kata, or one PR per kata group (Heian / Tekki / Shorin / Shorei / Sonstige)? | Affects issue decomposition and review scope per PR. Resolved at the spec-acceptance gate. | — |
+| `kiai: number[]` field added to Kata interface | Accepted at spec-acceptance gate: risingsun.ie prior-art identified kiai points as a missing field worth adopting. All 26 entries must set this field in the same atomic change; no partial implementation. Values are movement-step numbers (1-indexed) where kiai occurs. | 2026-06-26 |
+| One PR for all 26 kata corrections | Accepted at spec-acceptance gate: simpler review surface, single atomic change. All 26 kata corrected in one commit. | 2026-06-26 |
 
 ## Tracking
 
@@ -100,5 +98,5 @@ copies of Nakayama's Best Karate are available for cross-checking.
 
 ## Decision log
 
-- 2026-06-26: Scope set to all 6 existing Kata fields; two open decisions
-  (kiai field, PR granularity) deferred to acceptance gate.
+- 2026-06-26: Scope set to all 6 existing Kata fields; two open decisions deferred to acceptance gate.
+- 2026-06-26: Acceptance gate resolved: kiai field accepted (kiai: number[], all 26 entries); one PR for all 26 kata.
