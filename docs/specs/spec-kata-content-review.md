@@ -87,7 +87,7 @@ copies of Nakayama's Best Karate are available for cross-checking.
       cross-checked against JKA knowledge (Nakayama's Best Karate)
 - [ ] No kata entry has an empty or placeholder field
 - [ ] All `bewegungsanzahl` values are integers within known JKA ranges
-      (21–67 for the 26 standard kata)
+      (20–67 for the 26 standard kata; Heian Sandan has 20 movements)
 
 ## Risks and mitigations
 
@@ -96,6 +96,7 @@ copies of Nakayama's Best Karate are available for cross-checking.
 | Claude's knowledge has minor inaccuracies for some kata details | Flag uncertain items in PR description; human reviews at milestone QA gate |
 | Movement count disagreements between sources (some counts differ by edition) | Use Nakayama's Best Karate count as canonical; note any discrepancy in the PR |
 | Kiai-point field (if added) requires updating all 26 entries | If accepted, implement as part of this phase in a single atomic change; do not leave partial |
+| `Gruppe` enum may need extension if review finds wrong groupings | `'Sonstige'` is a catch-all, not a JKA classification; if any kata needs reclassification, the TypeScript union type must be updated alongside all affected entries — treat as an atomic schema change |
 
 ## Decision log
 
