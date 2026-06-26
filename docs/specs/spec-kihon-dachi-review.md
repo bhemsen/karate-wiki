@@ -8,6 +8,7 @@ JKA standard (Nakayama's Best Karate series).
 
 ## Outcome
 
+- [ ] `Technik` interface extended with `ziel: 'Jodan' | 'Chudan' | 'Gedan'`; all 17 entries populated with correct primary training target
 - [ ] All 17 Kihon `beschreibung` fields are factually correct and
       pedagogically clear per JKA standard
 - [ ] All 17 Kihon `nameJP` (kanji) fields are correct
@@ -31,8 +32,7 @@ JKA standard (Nakayama's Best Karate series).
 - All content fields in `src/data/dachi.ts`: id, nameJP, nameDE,
   beschreibung, schwierigkeit
 - Factual accuracy per JKA standard; German-language content fields
-- New fields to either interface, if accepted at the spec-acceptance gate
-  (see Prior decisions: OPEN rows)
+- `ziel: 'Jodan' | 'Chudan' | 'Gedan'` field added to `Technik` interface and all 17 entries (accepted at gate)
 
 ### Out of scope
 
@@ -68,9 +68,9 @@ none
 | Correctness authority is Nakayama's Best Karate | Established in prior-art.md; canonical JKA standard | 2026-06-26 |
 | Implementation reference is Claude's trained JKA knowledge | Extensive training knowledge of JKA Shotokan techniques and stances; uncertain items flagged for human review | 2026-06-26 |
 | `kategoriefarben` record is out of scope | UI color mapping, not content; no factual correctness concern | 2026-06-26 |
-| OPEN — should new fields be added to `Technik`? E.g. `ziel: 'Jodan' \| 'Chudan' \| 'Gedan'` (target level) or `trefferfläche: string` (attacking surface) | These fields would enrich the reference but are schema changes requiring all 17 entries to be populated. Resolved at the spec-acceptance gate. | — |
-| No new `Dachi` fields in this phase | Weight distribution information is correctly present in `beschreibung` for all 12 entries; extracting it into a dedicated field is a feature enhancement beyond the "review & correct" scope. Deferred to a future roadmap phase if needed. | 2026-06-26 |
-| OPEN — PR granularity: one PR for all (Kihon + Dachi), or separate PRs? | Affects how the implement loop dispatches work. Resolved at spec-acceptance gate. | — |
+| `ziel: 'Jodan' \| 'Chudan' \| 'Gedan'` added to `Technik` interface | Accepted at gate: target level is a meaningful pedagogical field missing from the current schema. All 17 entries must be populated in the same atomic change. Some techniques target multiple levels (e.g. Mae-Geri can be Chudan or Jodan) — use the primary/standard training target per JKA. | 2026-06-26 |
+| No new `Dachi` fields in this phase | Weight distribution information is correctly present in `beschreibung` for all 12 entries; extracting it is a feature enhancement beyond scope. Deferred. | 2026-06-26 |
+| One PR for both techniken.ts + dachi.ts | Accepted at gate: single atomic change; simplest review surface. | 2026-06-26 |
 
 ## Tracking
 
@@ -99,6 +99,5 @@ none
 
 ## Decision log
 
-- 2026-06-26: Scope set to all content fields in both data files; three open
-  decisions (new Technik fields, new Dachi fields, PR granularity) deferred to
-  acceptance gate.
+- 2026-06-26: Scope set to all content fields in both data files; open decisions deferred to acceptance gate.
+- 2026-06-26: Acceptance gate resolved: ziel field added to Technik (Jodan/Chudan/Gedan); no new Dachi fields; one PR for both files.
