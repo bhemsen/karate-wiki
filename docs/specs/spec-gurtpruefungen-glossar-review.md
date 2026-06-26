@@ -35,7 +35,7 @@ JKA standard (Nakayama's Best Karate series and JKA examination system).
   mindestTrainingszeit
 - All content fields in `src/data/glossar.ts`: begriffJP, aussprache,
   uebersetzungDE, erklaerung, kategorie
-- Adding new Glossar entries (if accepted at gate)
+- Adding new Glossar entries: target all terms referenced in Gurtprüfungen fields (kihonAnforderungen, kata, sonstigeAnforderungen) that lack a Glossar entry
 - Factual accuracy per JKA/DJKB standard; German-language content fields
 
 ### Out of scope
@@ -72,8 +72,8 @@ none
 | Correctness authority: JKA international + DJKB for Gurtprüfungen | The wiki targets German-speaking dojos using the DJKB (Deutscher JKA Karate-Bund) examination system, which follows JKA but has German-specific adaptations for minimum training times and belt colors; both are used | 2026-06-26 |
 | Correctness authority: Nakayama + Claude's trained knowledge for Glossar | Standard JKA terminology; no German-specific variation | 2026-06-26 |
 | `gurtfarbe` / `gurtHex` are content fields, not UI fields | Belt color is factual content (the actual belt color at each rank), unlike `kategoriefarben` which is purely UI choice; both fields are in scope for correctness review | 2026-06-26 |
-| OPEN — should more Glossar entries be added beyond the current 55? | Vision requires ≥ 50 (already met); adding more is a scope expansion. Resolved at the spec-acceptance gate. | — |
-| OPEN — PR granularity: one PR for both files, or separate PRs? | Resolved at the spec-acceptance gate. | — |
+| New Glossar entries are in scope | Accepted at gate: add missing terms from the JKA/DJKB examination vocabulary and JKA standard Kihon terminology. Completeness target: all terms referenced in kihonAnforderungen, kata, and sonstigeAnforderungen fields of the Gurtprüfungen should have a Glossar entry. New entries must follow the existing GlossarEintrag interface shape exactly. | 2026-06-26 |
+| One PR for both gurtpruefungen.ts + glossar.ts | Accepted at gate: single atomic change. | 2026-06-26 |
 
 ## Tracking
 
