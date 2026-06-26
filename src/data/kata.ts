@@ -21,7 +21,7 @@ export const kata: Kata[] = [
     bewegungsanzahl: 21,
     schwierigkeit: 'Anfänger',
     gruppe: 'Heian',
-    beschreibung: 'Die erste Kata der Heian-Serie bildet den Einstieg in das formelle Kata-Training. Sie enthält grundlegende Techniken wie Gedan-Barai, Age-Uke und Oi-Zuki in einfachen Richtungswechseln entlang einer I-förmigen Embusen. Die Heian-Serie entstand aus den Pinan-Katas von Anko Itosu und wurde von Gichin Funakoshi für den systematischen Unterricht adaptiert.',
+    beschreibung: 'Die erste Kata der Heian-Serie bildet den Einstieg in das formelle Kata-Training. Die vier Grundtechniken – Gedan-Barai, Oi-Zuki, Age-Uke und Shuto-Uke (im Kokutsu-Dachi) – werden in einfachen Richtungswechseln entlang einer H-förmigen Embusen geübt. Die Heian-Serie entstand aus den Pinan-Katas von Anko Itosu und wurde von Gichin Funakoshi für den systematischen Unterricht adaptiert.',
     erstePruefung: '9. Kyu',
     kiai: [9, 17],
   },
