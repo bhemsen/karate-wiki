@@ -69,7 +69,7 @@ none
 | Implementation reference is Claude's trained JKA knowledge | Extensive training knowledge of JKA Shotokan techniques and stances; uncertain items flagged for human review | 2026-06-26 |
 | `kategoriefarben` record is out of scope | UI color mapping, not content; no factual correctness concern | 2026-06-26 |
 | OPEN — should new fields be added to `Technik`? E.g. `ziel: 'Jodan' \| 'Chudan' \| 'Gedan'` (target level) or `trefferfläche: string` (attacking surface) | These fields would enrich the reference but are schema changes requiring all 17 entries to be populated. Resolved at the spec-acceptance gate. | — |
-| OPEN — should new fields be added to `Dachi`? E.g. `gewichtsverhältnis: string` as a structured field (currently embedded in beschreibung) | Extracting weight distribution into a dedicated field would enable display-level reuse. Schema change affects all 12 entries. Resolved at spec-acceptance gate. | — |
+| No new `Dachi` fields in this phase | Weight distribution information is correctly present in `beschreibung` for all 12 entries; extracting it into a dedicated field is a feature enhancement beyond the "review & correct" scope. Deferred to a future roadmap phase if needed. | 2026-06-26 |
 | OPEN — PR granularity: one PR for all (Kihon + Dachi), or separate PRs? | Affects how the implement loop dispatches work. Resolved at spec-acceptance gate. | — |
 
 ## Tracking
@@ -81,11 +81,13 @@ none
 ## Verification
 
 - [ ] `npm run verify` passes (`astro check`, ~7s)
-- [ ] `npm run build` produces 62 pages without errors
-- [ ] Human review: at least 3 Kihon techniques and 3 Dachi sampled and
-      cross-checked against JKA knowledge
+- [ ] `npm run build` produces ≥ 62 pages without errors (hardcoding exact count is fragile)
+- [ ] Human milestone-QA gate: at least 3 Kihon techniques and 3 Dachi
+      sampled and cross-checked; any items flagged as uncertain in the PR
+      description are resolved by the human at this gate
 - [ ] No entry has an empty or placeholder field
-- [ ] All `kyu` values are integers in the range 1–9
+- [ ] All `kyu` values are integers in the range 1–9 (9 = 9. Kyu / lowest beginner; 1 = 1. Kyu / highest pre-black-belt; no Dan value of 0 is used in this data set)
+- [ ] No string field (`beschreibung`, `nameJP`, `nameDE`) is empty or a placeholder in either data file
 
 ## Risks and mitigations
 
