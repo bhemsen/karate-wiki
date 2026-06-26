@@ -98,7 +98,7 @@ export const gurtpruefungen: Gurtpruefung[] = [
   {
     kyu: 4,
     gurtfarbe: 'Braun',
-    gurtHex: '#6D4C41',
+    gurtHex: '#795548',
     pruefungsname: '4. Kyu – Lila zu Braun',
     kihonAnforderungen: [
       'Alle Heian-Kata-Techniken flüssig ausgeführt',
@@ -115,7 +115,7 @@ export const gurtpruefungen: Gurtpruefung[] = [
   {
     kyu: 3,
     gurtfarbe: 'Braun (2. Stufe)',
-    gurtHex: '#795548',
+    gurtHex: '#6D4C41',
     pruefungsname: '3. Kyu – 2. Braungurt',
     kihonAnforderungen: [
       'Anspruchsvolle Kombinationsfolgen auf 10+ Schritte',
