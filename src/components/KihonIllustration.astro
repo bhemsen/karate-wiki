@@ -1,0 +1,86 @@
+---
+import { technikIllustrationen } from '../data/technik-illustrationen';
+import { kategoriefarben, type Kategorie } from '../data/techniken';
+
+interface Props {
+  technikId: string;
+  kategorie: Kategorie;
+  nameJP: string;
+}
+
+const { technikId, kategorie, nameJP } = Astro.props;
+const svgContent = technikIllustrationen[technikId];
+const color = kategoriefarben[kategorie];
+---
+
+<div class="illustration-wrap" style={`--ill-color: ${color}`}>
+  {svgContent ? (
+    <svg
+      viewBox="0 0 120 160"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label={`Illustration: ${nameJP}`}
+      role="img"
+      class="technik-svg"
+      style={`color: ${color}`}
+    >
+      <Fragment set:html={svgContent} />
+    </svg>
+    <p class="ill-label">
+      <span class="ill-kanji">{nameJP}</span>
+    </p>
+  ) : (
+    <div class="ill-fallback">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="5" r="2.5"/>
+        <path d="M12 8v5m0 0-3 4m3-4 3 4M8 12H4M16 12h4"/>
+      </svg>
+      <p>Illustration</p>
+      <p class="ill-kanji-sm">{nameJP}</p>
+    </div>
+  )}
+</div>
+
+<style>
+  .illustration-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    aspect-ratio: 3/4;
+  }
+
+  .technik-svg {
+    flex: 1;
+    width: 100%;
+    padding: 1.5rem 1rem 0.5rem;
+  }
+
+  .ill-label {
+    padding: 0.75rem 1rem 1rem;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--ill-color);
+    line-height: 1;
+    opacity: 0.4;
+  }
+
+  .ill-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    background: #F5F7F8;
+    padding: 2rem;
+    text-align: center;
+  }
+  .ill-fallback svg { opacity: 0.25; }
+  .ill-fallback p { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  .ill-kanji-sm { font-size: 1.6rem !important; text-transform: none !important; letter-spacing: 0 !important; opacity: 0.35; }
+</style>
