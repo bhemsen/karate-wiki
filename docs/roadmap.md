@@ -13,7 +13,7 @@
 |---|---|---|---|
 | 1 | kata-content-review | [spec](specs/archive/spec-kata-content-review.md) | [#1](https://github.com/bhemsen/karate-wiki/milestone/1) |
 | 2 | kihon-dachi-review | [spec](specs/archive/spec-kihon-dachi-review.md) | [#2](https://github.com/bhemsen/karate-wiki/milestone/2) |
-| 3 | gurtpruefungen-glossar-review | [spec](specs/spec-gurtpruefungen-glossar-review.md) | [#3](https://github.com/bhemsen/karate-wiki/milestone/3) |
+| 3 | gurtpruefungen-glossar-review | [spec](specs/archive/spec-gurtpruefungen-glossar-review.md) | [#3](https://github.com/bhemsen/karate-wiki/milestone/3) |
 | 4 | unstaged-integration | [spec](specs/spec-unstaged-integration.md) | [#4](https://github.com/bhemsen/karate-wiki/milestone/4) |
 
 A phase gets a Spec link once `/loopkit:plan` drafts it, and a Milestone link once the
