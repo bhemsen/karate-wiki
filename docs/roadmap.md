@@ -12,7 +12,7 @@
 | Phase | Name | Spec | Milestone |
 |---|---|---|---|
 | 1 | kata-content-review | [spec](specs/spec-kata-content-review.md) | [#1](https://github.com/bhemsen/karate-wiki/milestone/1) |
-| 2 | kihon-dachi-review | — | — |
+| 2 | kihon-dachi-review | [spec](specs/spec-kihon-dachi-review.md) | [#2](https://github.com/bhemsen/karate-wiki/milestone/2) |
 | 3 | gurtpruefungen-glossar-review | — | — |
 | 4 | unstaged-integration | — | — |
 
