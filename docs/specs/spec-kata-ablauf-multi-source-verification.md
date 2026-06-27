@@ -161,6 +161,7 @@ Each issue references this spec path in its body.
 | 25 PRs is a heavy review load | Each PR is narrow (one kata) and small; the dojo-trained practitioner spot-checks per kata, not all together |
 | Some kata (Wankan, Gojushiho, Chinte, Unsu, Meikyo) are rarely performed; sources may disagree more | Use `bewegungsanzahl` as authoritative step count; explicitly document dissent in the PR; defer to Wikipedia DE when the JKA reference is sparse |
 | Outlier sources (e.g. karate-notes Heian Shodan kiai discrepancy) | 4-of-5 majority threshold for technique consensus; note dissenting source in the PR |
+| No 4-of-5 consensus exists for a critical step (technique name or kiai position) | Implementer parks the issue with the `blocked:human` label and a comment naming the exact disagreement instead of guessing. The 5-source method is meant to catch single-source bias; sub-majority is a planning defect, not an implementation call |
 | Serial dependency makes the milestone long | Accepted trade-off — merge conflicts on `kata-ablauf.ts` would be worse; the loop processes one issue at a time |
 
 ## Decision log
