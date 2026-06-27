@@ -21,6 +21,9 @@ method established by Heian Shodan (PR #38, merged 2026-06-27).
       direction).
 - [ ] Each `kiai: true` flag sits on the technique that is the kiai-bearing
       move per consensus (not merely at the right step number).
+- [ ] Each touched step's `beschreibung` text remains consistent with the
+      corrected `technik`, `seite`, and `stand` — no orphaned descriptions
+      referring to the old technique.
 - [ ] `KataAblauf.vollstaendig` remains `true` for all 26 kata.
 - [ ] `npm run verify` passes with 0 errors and 0 warnings.
 - [ ] `npm run build` produces 62 pages without errors.
@@ -115,15 +118,19 @@ No genuinely-open decisions remain at planning time.
   | 14 | Jion | Sonstige |
   | 15 | Jitte | Sonstige |
   | 16 | Jiin | Sonstige |
-  | 17 | Gankaku | Sonstige |
-  | 18 | Nijushiho | Sonstige |
-  | 19 | Sochin | Sonstige |
+  | 17 | Gankaku | Shorin |
+  | 18 | Nijushiho | Shorin |
+  | 19 | Sochin | Shorei |
   | 20 | Meikyo | Sonstige |
   | 21 | Chinte | Sonstige |
-  | 22 | Unsu | Sonstige |
-  | 23 | Wankan | Sonstige |
-  | 24 | Gojushiho Dai | Sonstige |
-  | 25 | Gojushiho Sho | Sonstige |
+  | 22 | Unsu | Shorin |
+  | 23 | Wankan | Shorin |
+  | 24 | Gojushiho Dai | Shorin |
+  | 25 | Gojushiho Sho | Shorin |
+
+Groups in the table mirror `kata.ts` `gruppe` (the canonical classification),
+not common Shotokan literature groupings, so that the spec is the single
+source of truth alongside the data file.
 
 Each issue references this spec path in its body.
 
@@ -137,6 +144,11 @@ Each issue references this spec path in its body.
 - [ ] No step in any kata has `technik: ''` or a placeholder name.
 - [ ] For each kata in scope, `kiai: true` lands on the technique named in
       ≥4 of 5 consulted sources.
+- [ ] Machine cross-check: for every kata, the `nr` values of all
+      `kiai: true` entries in `kata-ablauf.ts` exactly match the `kiai:
+      number[]` array in `kata.ts` (e.g. `kiai: [9, 17]` ↔ `kiai: true`
+      on steps 9 and 17). This guards against the PR #31 failure mode
+      where kiai-step numbers and kiai-bearing techniques drifted apart.
 - [ ] Human milestone-QA gate: spot-check at least 4 kata (one from each
       major group — Heian, Tekki, Shorin/Shorei, Sonstige) against personal
       dojo knowledge or Wikipedia.
