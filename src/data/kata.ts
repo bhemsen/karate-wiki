@@ -65,9 +65,9 @@ export const kata: Kata[] = [
     bewegungsanzahl: 23,
     schwierigkeit: 'Mittel',
     gruppe: 'Heian',
-    beschreibung: 'Die fünfte Heian-Kata markiert den Übergang zu fortgeschritteneren Techniken und enthält den charakteristischen Kreuzsprung (Kosa-Tobi) als einzige Heian-Kata mit Sprungbewegung. Sie beinhaltet Morote-Uke, Juji-Uke und eine komplexe Schlusssequenz mit dem Sprung und anschließendem Gedan-Barai.',
+    beschreibung: 'Die fünfte Heian-Kata markiert den Übergang zu fortgeschritteneren Techniken und enthält den charakteristischen Tobi-Komi-Sprung (einzige Heian-Kata mit Sprungbewegung) mit Gedan-Juji-Uke in Kosa-Dachi. Sie beinhaltet Morote-Uke, Juji-Uke-Variationen (Gedan und Jodan Shuto), Mikazuki-Geri sowie eine komplexe Schlusssequenz mit Manji-Uke und Nagashi-Uke.',
     erstePruefung: '5. Kyu',
-    kiai: [12, 23],
+    kiai: [12, 19],
   },
   {
     id: 'tekki-shodan',
