@@ -89,7 +89,7 @@ export const kata: Kata[] = [
     gruppe: 'Tekki',
     beschreibung: 'Die zweite Tekki-Kata baut auf Tekki Shodan auf und führt neue Kombinationstechniken im Kiba-Dachi ein. Mit 24 Bewegungen ist sie kürzer als Tekki Shodan, aber in der Technikvielfalt anspruchsvoller. Sie vertieft das Verständnis des seitlichen Nahkampfes und der kraftvollen Hüftarbeit.',
     erstePruefung: '1. Dan',
-    kiai: [14, 24],
+    kiai: [16, 24],
   },
   {
     id: 'tekki-sandan',

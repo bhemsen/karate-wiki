@@ -242,37 +242,43 @@ const tekkiShodan: KataAblauf = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// TEKKI NIDAN  (24 Bewegungen, 2 Kiai)
-// Techniken: Uchi-Uke, Gedan-Uchi-Barai, Nami-Gaeshi, Kagi-Zuki, Ushiro-Empi, Morote-Zuki
+// TEKKI NIDAN  (24 Bewegungen, 2 Kiai bei 16 + 24)
+// Techniken: Morote-Mune-Kamae, Sokumen-Chudan-Uke, Soete-Gedan-Uke,
+//            Sokumen-Gedan-Uchi-Uke, Tate-Shuto-Uke, Mae-Empi, Shuto-Kake-Uke,
+//            Kagi-Zuki, Uchi-Uke, Nagashi-Uke + Gedan-Barai, Ura-Zuki
+// Embusen: horizontale Linie; Kata ist spiegelbildlich (rechts 1-12, links 13-24)
 // ─────────────────────────────────────────────────────────────────────────────
 const tekkiNidan: KataAblauf = {
   id: 'tekki-nidan',
   vollstaendig: true,
   schritte: [
-    { nr: 1,  technik: 'Uchi-Uke',          seite: 'Rechts', richtung: 'Schritt rechts',       stand: 'Kiba-Dachi', beschreibung: 'Schritt nach rechts in Kiba-Dachi; rechter Innenblock auf Chudan-Höhe. Alle Techniken der Tekki-Serie werden auf einer horizontalen Linie ausgeführt.' },
-    { nr: 2,  technik: 'Gedan-Uchi-Barai',  seite: 'Rechts', richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Rechter Arm schlägt nach unten-innen (diagonaler Abwärtsblock von innen nach außen). Beide Fäuste arbeiten gegenseitig.' },
-    { nr: 3,  technik: 'Nami-Gaeshi',       seite: 'Links',  richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Linkes Bein schnappt aus dem Kiba-Dachi einwärts (Wellenschlag); Knie zieht hoch, Fußsohle trifft einwärts.' },
-    { nr: 4,  technik: 'Kagi-Zuki Chudan',  seite: 'Rechts', richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Rechter Haken-Stoß auf Chudan-Höhe zur Seite. Faust dreht beim Aufprall einwärts.' },
-    { nr: 5,  technik: 'Morote-Uke',        seite: 'Links',  richtung: 'Schritt links',         stand: 'Kiba-Dachi', beschreibung: 'Schritt nach links; linker Unterarm blockt, rechte Hand stützt am linken Ellenbogen (Doppelarmblock).' },
-    { nr: 6,  technik: 'Uchi-Uke',          seite: 'Links',  richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Linker Innenblock auf Chudan-Höhe von innen nach außen.' },
-    { nr: 7,  technik: 'Nami-Gaeshi',       seite: 'Rechts', richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Rechtes Bein schnappt einwärts (Wellenschlag).' },
-    { nr: 8,  technik: 'Kagi-Zuki Chudan',  seite: 'Links',  richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Linker Haken-Stoß auf Chudan-Höhe zur Seite.' },
-    { nr: 9,  technik: 'Ushiro-Empi',       seite: 'Rechts', richtung: 'Schritt rechts',        stand: 'Kiba-Dachi', beschreibung: 'Schritt nach rechts; rechter Ellenbogen schlägt nach hinten (Ushiro-Empi) auf Chudan-Höhe.' },
-    { nr: 10, technik: 'Gedan-Uchi-Barai',  seite: 'Links',  richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Linker Arm schlägt nach unten-innen.' },
-    { nr: 11, technik: 'Nami-Gaeshi',       seite: 'Rechts', richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Rechtes Bein Wellenschlag einwärts.' },
-    { nr: 12, technik: 'Morote-Zuki',       seite: 'Beide',  richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Beidseitiger Stoß gleichzeitig nach vorne und hinten. Maximale Hüftspannung.' },
-    { nr: 13, technik: 'Uchi-Uke',          seite: 'Links',  richtung: 'Schritt links',         stand: 'Kiba-Dachi', beschreibung: 'Schritt nach links; linker Innenblock auf Chudan-Höhe.' },
-    { nr: 14, technik: 'Gedan-Uchi-Barai',  seite: 'Links',  richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Linker Abwärts-Innenblock. Kiai!', kiai: true },
-    { nr: 15, technik: 'Nami-Gaeshi',       seite: 'Rechts', richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Rechtes Bein Wellenschlag.' },
-    { nr: 16, technik: 'Kagi-Zuki Chudan',  seite: 'Links',  richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Linker Haken-Stoß zur Seite.' },
-    { nr: 17, technik: 'Morote-Uke',        seite: 'Rechts', richtung: 'Schritt rechts',        stand: 'Kiba-Dachi', beschreibung: 'Schritt nach rechts; rechter Unterarm blockt, linke Hand stützt.' },
-    { nr: 18, technik: 'Uchi-Uke',          seite: 'Rechts', richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Rechter Innenblock auf Chudan-Höhe.' },
-    { nr: 19, technik: 'Nami-Gaeshi',       seite: 'Links',  richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Linkes Bein Wellenschlag.' },
-    { nr: 20, technik: 'Kagi-Zuki Chudan',  seite: 'Rechts', richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Rechter Haken-Stoß zur Seite.' },
-    { nr: 21, technik: 'Ushiro-Empi',       seite: 'Links',  richtung: 'Schritt links',         stand: 'Kiba-Dachi', beschreibung: 'Schritt nach links; linker Ellenbogen nach hinten.' },
-    { nr: 22, technik: 'Gedan-Uchi-Barai',  seite: 'Rechts', richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Rechter Abwärts-Innenblock.' },
-    { nr: 23, technik: 'Nami-Gaeshi',       seite: 'Links',  richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Linkes Bein Wellenschlag.' },
-    { nr: 24, technik: 'Morote-Zuki',       seite: 'Beide',  richtung: 'Stand halten',         stand: 'Kiba-Dachi', beschreibung: 'Beidseitiger Stoß gleichzeitig nach beiden Seiten. Kiai! Yame.', kiai: true },
+    // ── Erste Hälfte: rechte Seite (Schritte 1-12) ──
+    { nr: 1,  technik: 'Morote-Mune-Kamae',     seite: 'Rechts', richtung: 'Kopf nach rechts',      stand: 'Kosa-Dachi', beschreibung: 'Aus Yoi: Kopf nach rechts wenden; linker Fuß kreuzt langsam vor den rechten in Kosa-Dachi; beide Arme werden zur Brust geführt (Morote-Mune-Kamae) als Vorbereitungsposition. Alle Techniken der Tekki-Serie werden auf einer horizontalen Linie ausgeführt.' },
+    { nr: 2,  technik: 'Sokumen-Chudan-Uke',    seite: 'Rechts', richtung: 'Fumikomi rechts',       stand: 'Kiba-Dachi', beschreibung: 'Rechter Fußstampf (Fumikomi) zur Seite in Kiba-Dachi; rechter Seitwärts-Block auf Chudan-Höhe mit Tate-Soto-Uke-Charakter, linker Arm horizontal vor der Brust in Suihei-Kamae.' },
+    { nr: 3,  technik: 'Soete-Gedan-Uke',       seite: 'Rechts', richtung: 'Linker Fuß kreuzt',     stand: 'Kosa-Dachi', beschreibung: 'Linker Fuß kreuzt nach rechts in Kosa-Dachi; rechter Abwärtsblock (Gedan-Uke) zur Front, linke offene Hand stützt am rechten Unterarm (Soete).' },
+    { nr: 4,  technik: 'Sokumen-Gedan-Uchi-Uke',seite: 'Rechts', richtung: 'Schritt rechts',        stand: 'Kiba-Dachi', beschreibung: 'Schritt nach rechts in Kiba-Dachi; rechter Seitwärts-Abwärtsblock von innen nach außen (Gedan-Uchi-Uke), linke Hand stützt am rechten Unterarm.' },
+    { nr: 5,  technik: 'Morote-Mune-Kamae',     seite: 'Links',  richtung: 'Kopf nach links',       stand: 'Heisoku-Dachi', beschreibung: 'Füße schließen zu Heisoku-Dachi; Kopf nach links wenden; beide Arme zur Brustvorbereitung (Morote-Mune-Kamae). Die Tekki Nidan enthält genau ein Heisoku-Dachi.' },
+    { nr: 6,  technik: 'Sokumen-Chudan-Uke',    seite: 'Links',  richtung: 'Fumikomi links',        stand: 'Kiba-Dachi', beschreibung: 'Linker Fußstampf zur Seite in Kiba-Dachi; linker Seitwärts-Block Chudan, rechter Arm horizontal vor der Brust.' },
+    { nr: 7,  technik: 'Soete-Gedan-Uke',       seite: 'Links',  richtung: 'Rechter Fuß kreuzt',    stand: 'Kosa-Dachi', beschreibung: 'Rechter Fuß kreuzt nach links in Kosa-Dachi; linker Abwärtsblock zur Front, rechte offene Hand stützt am linken Unterarm.' },
+    { nr: 8,  technik: 'Sokumen-Gedan-Uchi-Uke',seite: 'Links',  richtung: 'Schritt links',         stand: 'Kiba-Dachi', beschreibung: 'Schritt nach links in Kiba-Dachi; linker Seitwärts-Abwärtsblock von innen nach außen, rechte Hand stützt am linken Unterarm.' },
+    { nr: 9,  technik: 'Tate-Shuto-Uke',        seite: 'Links',  richtung: 'Kopf nach rechts',      stand: 'Kiba-Dachi', beschreibung: 'Kopf nach rechts wenden; linker vertikaler Handkantenblock (Tate-Shuto-Uke) Chudan; rechte Faust an der rechten Hüfte (Hikite).' },
+    { nr: 10, technik: 'Mae-Empi',              seite: 'Rechts', richtung: 'Hiza-Geri + Fumikomi',  stand: 'Kiba-Dachi', beschreibung: 'Rechtes Knie schnappt hoch (Hiza-Geri-Vorbereitung); rechter Fuß stampft zurück in Kiba-Dachi; rechter Vorwärts-Ellenbogenschlag (Mae-Empi) Chudan trifft die linke Handfläche.' },
+    { nr: 11, technik: 'Shuto-Kake-Uke',        seite: 'Rechts', richtung: 'Stand halten',          stand: 'Kiba-Dachi', beschreibung: 'Rechter Hakenförmiger Handkantenblock (Shuto-Kake-Uke) Chudan zur Seite – greifender Hakenblock.' },
+    { nr: 12, technik: 'Kagi-Zuki Chudan',      seite: 'Links',  richtung: 'Stand halten',          stand: 'Kiba-Dachi', beschreibung: 'Linker Haken-Stoß (Kagi-Zuki) auf Chudan-Höhe zur Seite. Faust dreht beim Aufprall einwärts.' },
+    // ── Übergang zur Frontachse + Kiai 1 (Schritte 13-16) ──
+    { nr: 13, technik: 'Yoko-Sashi-Ashi',       seite: 'Rechts', richtung: 'Verlagerung rechts',    stand: 'Kosa-Dachi', beschreibung: 'Linker Fuß schiebt zum rechten in Kosa-Dachi (Yoko-Sashi-Ashi); Körper verlagert sich nach rechts; Kagi-Zuki-Position wird gehalten als Vorbereitung der Frontaktion.' },
+    { nr: 14, technik: 'Uchi-Uke',              seite: 'Links',  richtung: 'Fumikomi nach vorne',   stand: 'Kiba-Dachi', beschreibung: 'Rechter Fuß stampft (Fumikomi) zur Frontseite in Kiba-Dachi; linker Innenblock (Uchi-Uke) Chudan von innen nach außen.' },
+    { nr: 15, technik: 'Nagashi-Uke + Gedan-Barai', seite: 'Beide', richtung: 'Stand halten',       stand: 'Kiba-Dachi', beschreibung: 'Gleichzeitig: rechter Jodan-Nagashi-Uke (fegender Block vor dem Kopf) mit dem Handrücken; linker Gedan-Barai (Abwärtsblock) zur Hüfte – synchrone Kombination als Vorbereitung des Ura-Zuki.' },
+    { nr: 16, technik: 'Ura-Zuki Jodan',        seite: 'Rechts', richtung: 'Stand halten',          stand: 'Kiba-Dachi', beschreibung: 'Rechter Jodan-Ura-Zuki (umgedrehter Faust-Stoß nach vorne); rechter Ellenbogen ruht auf dem Rücken der linken Faust. Kiai!', kiai: true },
+    // ── Zweite Hälfte: spiegelbildlich, linke Seite (Schritte 17-24) ──
+    { nr: 17, technik: 'Tate-Shuto-Uke',        seite: 'Rechts', richtung: 'Kopf nach links',       stand: 'Kiba-Dachi', beschreibung: 'Kopf nach links wenden; rechter vertikaler Handkantenblock (Tate-Shuto-Uke) Chudan; linke Faust an der linken Hüfte (Hikite).' },
+    { nr: 18, technik: 'Mae-Empi',              seite: 'Links',  richtung: 'Hiza-Geri + Fumikomi',  stand: 'Kiba-Dachi', beschreibung: 'Linkes Knie schnappt hoch; linker Fuß stampft zurück in Kiba-Dachi; linker Vorwärts-Ellenbogenschlag Chudan trifft die rechte Handfläche.' },
+    { nr: 19, technik: 'Shuto-Kake-Uke',        seite: 'Links',  richtung: 'Stand halten',          stand: 'Kiba-Dachi', beschreibung: 'Linker hakenförmiger Handkantenblock Chudan zur Seite.' },
+    { nr: 20, technik: 'Kagi-Zuki Chudan',      seite: 'Rechts', richtung: 'Stand halten',          stand: 'Kiba-Dachi', beschreibung: 'Rechter Haken-Stoß Chudan zur Seite.' },
+    { nr: 21, technik: 'Yoko-Sashi-Ashi',       seite: 'Links',  richtung: 'Verlagerung links',     stand: 'Kosa-Dachi', beschreibung: 'Rechter Fuß schiebt zum linken in Kosa-Dachi; Körper verlagert sich nach links; Kagi-Zuki-Position wird gehalten.' },
+    { nr: 22, technik: 'Uchi-Uke',              seite: 'Rechts', richtung: 'Fumikomi nach vorne',   stand: 'Kiba-Dachi', beschreibung: 'Linker Fuß stampft zur Frontseite in Kiba-Dachi; rechter Innenblock Chudan von innen nach außen.' },
+    { nr: 23, technik: 'Nagashi-Uke + Gedan-Barai', seite: 'Beide', richtung: 'Stand halten',       stand: 'Kiba-Dachi', beschreibung: 'Gleichzeitig: linker Jodan-Nagashi-Uke vor dem Kopf; rechter Gedan-Barai zur Hüfte – synchrone Kombination.' },
+    { nr: 24, technik: 'Ura-Zuki Jodan',        seite: 'Links',  richtung: 'Stand halten',          stand: 'Kiba-Dachi', beschreibung: 'Linker Jodan-Ura-Zuki nach vorne; linker Ellenbogen auf dem Rücken der rechten Faust. Kiai! Yame.', kiai: true },
   ],
 };
 
