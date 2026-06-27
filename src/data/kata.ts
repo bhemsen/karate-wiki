@@ -100,7 +100,7 @@ export const kata: Kata[] = [
     gruppe: 'Tekki',
     beschreibung: 'Die dritte und längste Tekki-Kata mit 36 Bewegungen ist die komplexeste der Serie. Sie enthält fortgeschrittene Kombinationen und vielschichtige Abwehrtechniken, alle im Kiba-Dachi ausgeführt. Tekki Sandan gilt als Abschluss der Tekki-Ausbildung und verlangt vollständige Beherrschung der Standbeinarbeit.',
     erstePruefung: '2. Dan',
-    kiai: [20, 36],
+    kiai: [16, 36],
   },
   {
     id: 'bassai-dai',
