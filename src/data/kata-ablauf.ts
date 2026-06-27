@@ -16,33 +16,33 @@ export interface KataAblauf {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // HEIAN SHODAN  (21 Bewegungen, 2 Kiai)
-// Techniken: Gedan-Barai, Oi-Zuki Chudan, Age-Uke, Shuto-Uke
+// Techniken: Gedan-Barai, Oi-Zuki Chudan, Tetsui-Uchi, Age-Uke, Shuto-Uke
 // ─────────────────────────────────────────────────────────────────────────────
 const heianShodan: KataAblauf = {
   id: 'heian-shodan',
   vollstaendig: true,
   schritte: [
-    { nr: 1,  technik: 'Gedan-Barai',      seite: 'Links',  richtung: 'Links wenden',        stand: 'Zenkutsu-Dachi', beschreibung: 'Linkes Bein tritt nach links; linker Unterarm schlägt diagonal nach unten-außen. Faust endet eine Faust über dem linken Knie.' },
-    { nr: 2,  technik: 'Oi-Zuki Chudan',   seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt einen Schritt vor; simultaner rechter Geradstoß auf Chudan-Höhe (Solarplexus).' },
-    { nr: 3,  technik: 'Gedan-Barai',      seite: 'Rechts', richtung: '180° rechts wenden',  stand: 'Zenkutsu-Dachi', beschreibung: 'Vollständig nach rechts drehen; rechter Unterarm-Block nach unten-außen.' },
-    { nr: 4,  technik: 'Oi-Zuki Chudan',   seite: 'Links',  richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß tritt einen Schritt vor; linker Geradstoß auf Chudan-Höhe.' },
-    { nr: 5,  technik: 'Gedan-Barai',      seite: 'Links',  richtung: '90° links wenden',     stand: 'Zenkutsu-Dachi', beschreibung: 'Zur Hauptangriffsrichtung wenden; linker Unterarm-Block nach unten.' },
-    { nr: 6,  technik: 'Age-Uke',          seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt vor; rechter Unterarm schwingt von innen-unten nach oben-außen, Handgelenk auf Stirnhöhe.' },
-    { nr: 7,  technik: 'Age-Uke',          seite: 'Links',  richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß tritt vor; linker Aufwärtsblock schützt den Kopfbereich.' },
-    { nr: 8,  technik: 'Age-Uke',          seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt vor; rechter Aufwärtsblock mit maximaler Hüftrotation.' },
-    { nr: 9,  technik: 'Gedan-Barai',      seite: 'Rechts', richtung: 'Rechts wenden',       stand: 'Zenkutsu-Dachi', beschreibung: 'Rechts wenden; rechter Unterarm-Block nach unten-außen. Kiai.', kiai: true },
-    { nr: 10, technik: 'Oi-Zuki Chudan',   seite: 'Links',  richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß tritt vor; linker Geradstoß Chudan.' },
-    { nr: 11, technik: 'Gedan-Barai',      seite: 'Links',  richtung: '180° links wenden',    stand: 'Zenkutsu-Dachi', beschreibung: 'Vollständig nach links drehen; linker Unterarm-Block nach unten.' },
-    { nr: 12, technik: 'Oi-Zuki Chudan',   seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt vor; rechter Geradstoß Chudan.' },
-    { nr: 13, technik: 'Gedan-Barai',      seite: 'Links',  richtung: '90° links wenden',     stand: 'Zenkutsu-Dachi', beschreibung: 'Zur Hauptrichtung wenden; linker Unterarm-Block nach unten.' },
-    { nr: 14, technik: 'Age-Uke',          seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt vor; rechter Aufwärtsblock.' },
-    { nr: 15, technik: 'Age-Uke',          seite: 'Links',  richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß tritt vor; linker Aufwärtsblock.' },
-    { nr: 16, technik: 'Age-Uke',          seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt vor; rechter Aufwärtsblock.' },
-    { nr: 17, technik: 'Shuto-Uke',        seite: 'Links',  richtung: 'Links wenden',         stand: 'Kokutsu-Dachi',  beschreibung: 'Links wenden in Kokutsu-Dachi; linker Handkanten-Block (Handkante der kleinen Fingerseite) auf Chudan-Höhe, rechte Hand vor dem Bauch. Kiai.', kiai: true },
-    { nr: 18, technik: 'Shuto-Uke',        seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Kokutsu-Dachi',  beschreibung: 'Rechter Fuß tritt vor in Kokutsu-Dachi; rechter Handkanten-Block auf Chudan-Höhe.' },
-    { nr: 19, technik: 'Shuto-Uke',        seite: 'Links',  richtung: '90° rechts wenden',    stand: 'Kokutsu-Dachi',  beschreibung: 'Zur Seite wenden in Kokutsu-Dachi; linker Handkanten-Block auf Chudan-Höhe.' },
-    { nr: 20, technik: 'Shuto-Uke',        seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Kokutsu-Dachi',  beschreibung: 'Rechter Fuß tritt vor in Kokutsu-Dachi; rechter Handkanten-Block auf Chudan-Höhe.' },
-    { nr: 21, technik: 'Shuto-Uke',        seite: 'Links',  richtung: 'Schritt vor',          stand: 'Kokutsu-Dachi',  beschreibung: 'Linker Fuß tritt vor in Kokutsu-Dachi; linker Handkanten-Block. Yame.' },
+    { nr: 1,  technik: 'Gedan-Barai',      seite: 'Links',  richtung: '90° links wenden',     stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß tritt nach links; 90°-Drehung zur ersten Angriffsrichtung. Linker Unterarm-Block (Gedan-Barai) diagonal nach unten-außen, Faust endet eine Faust über dem linken Knie.' },
+    { nr: 2,  technik: 'Oi-Zuki Chudan',   seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt einen Schritt vor in rechtes Zenkutsu-Dachi; rechter Geradstoß (Oi-Zuki) auf Chudan-Höhe (Solarplexus).' },
+    { nr: 3,  technik: 'Gedan-Barai',      seite: 'Rechts', richtung: '180° rechts wenden',   stand: 'Zenkutsu-Dachi', beschreibung: 'Vollständig nach rechts (180°) drehen; rechter Unterarm-Block (Gedan-Barai) nach unten-außen.' },
+    { nr: 4,  technik: 'Tetsui-Uchi',      seite: 'Rechts', richtung: 'Stand halten',         stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Hammerfaust-Schlag (Tetsui-Uchi): rechter Arm zieht zur linken Schulter und schlägt im Kreisbogen abwärts-außen zur Seite. Fußstellung bleibt im rechten Zenkutsu-Dachi.' },
+    { nr: 5,  technik: 'Oi-Zuki Chudan',   seite: 'Links',  richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß tritt einen Schritt vor; linker Geradstoß (Oi-Zuki) auf Chudan-Höhe.' },
+    { nr: 6,  technik: 'Gedan-Barai',      seite: 'Links',  richtung: '90° links wenden',     stand: 'Zenkutsu-Dachi', beschreibung: 'Zur Hauptangriffsrichtung (Embusen-Hauptachse) wenden; linker Unterarm-Block (Gedan-Barai) nach unten.' },
+    { nr: 7,  technik: 'Age-Uke',          seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt vor; rechter Aufwärtsblock (Age-Uke). Unterarm schwingt von innen-unten nach oben-außen, Handgelenk auf Stirnhöhe.' },
+    { nr: 8,  technik: 'Age-Uke',          seite: 'Links',  richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß tritt vor; linker Aufwärtsblock schützt den Kopfbereich.' },
+    { nr: 9,  technik: 'Age-Uke',          seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt vor; dritter, abschließender rechter Aufwärtsblock mit maximaler Hüftrotation. Kiai.', kiai: true },
+    { nr: 10, technik: 'Gedan-Barai',      seite: 'Links',  richtung: '270° links wenden',    stand: 'Zenkutsu-Dachi', beschreibung: 'Vom rechten Zenkutsu-Dachi 270° nach links drehen (zurück auf die Querachse); linker Unterarm-Block (Gedan-Barai) nach unten.' },
+    { nr: 11, technik: 'Oi-Zuki Chudan',   seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt vor; rechter Geradstoß auf Chudan-Höhe.' },
+    { nr: 12, technik: 'Gedan-Barai',      seite: 'Rechts', richtung: '180° rechts wenden',   stand: 'Zenkutsu-Dachi', beschreibung: 'Vollständig nach rechts drehen; rechter Unterarm-Block (Gedan-Barai) nach unten.' },
+    { nr: 13, technik: 'Oi-Zuki Chudan',   seite: 'Links',  richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß tritt vor; linker Geradstoß auf Chudan-Höhe.' },
+    { nr: 14, technik: 'Gedan-Barai',      seite: 'Links',  richtung: '90° links wenden',     stand: 'Zenkutsu-Dachi', beschreibung: 'Zur Hauptangriffsrichtung wenden; linker Unterarm-Block (Gedan-Barai) nach unten.' },
+    { nr: 15, technik: 'Oi-Zuki Chudan',   seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt vor; rechter Geradstoß Chudan.' },
+    { nr: 16, technik: 'Oi-Zuki Chudan',   seite: 'Links',  richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß tritt vor; linker Geradstoß Chudan.' },
+    { nr: 17, technik: 'Oi-Zuki Chudan',   seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß tritt vor; dritter, abschließender rechter Geradstoß Chudan mit maximaler Hüftrotation. Kiai.', kiai: true },
+    { nr: 18, technik: 'Shuto-Uke',        seite: 'Links',  richtung: '270° links wenden auf 45°-Diagonale', stand: 'Kokutsu-Dachi',  beschreibung: 'Auf die rückwärtige 45°-Diagonale links-hinten wenden; linker Handkanten-Block (Shuto-Uke) auf Chudan-Höhe in Kokutsu-Dachi, rechte Hand offen vor der Brust.' },
+    { nr: 19, technik: 'Shuto-Uke',        seite: 'Rechts', richtung: '45° diagonal vor',     stand: 'Kokutsu-Dachi',  beschreibung: 'Rechter Fuß tritt im 45°-Winkel diagonal vor; rechter Handkanten-Block auf Chudan-Höhe in Kokutsu-Dachi.' },
+    { nr: 20, technik: 'Shuto-Uke',        seite: 'Rechts', richtung: '135° rechts wenden',   stand: 'Kokutsu-Dachi',  beschreibung: 'Um 135° nach rechts auf die spiegelbildliche Diagonale wenden; rechter Handkanten-Block auf Chudan-Höhe in Kokutsu-Dachi.' },
+    { nr: 21, technik: 'Shuto-Uke',        seite: 'Links',  richtung: '45° diagonal vor',     stand: 'Kokutsu-Dachi',  beschreibung: 'Linker Fuß tritt im 45°-Winkel diagonal vor; linker Handkanten-Block in Kokutsu-Dachi. Yame.' },
   ],
 };
 
