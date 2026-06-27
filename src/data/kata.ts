@@ -109,9 +109,9 @@ export const kata: Kata[] = [
     bewegungsanzahl: 42,
     schwierigkeit: 'Mittel',
     gruppe: 'Shorin',
-    beschreibung: 'Eine der bedeutendsten und bekanntesten Shotokan-Katas, die Kraft, Entschlossenheit und Tempo demonstriert. Sie beginnt kraftvoll und enthält charakteristische Arm-Überkreuzungen, dynamische Richtungswechsel und starke Zenkutsu-Dachi-Kombinationen. Bassai Dai gilt als Prüfstein der fortgeschrittenen Ausbildung.',
+    beschreibung: 'Eine der bedeutendsten und bekanntesten Shotokan-Katas, die Kraft, Entschlossenheit und Tempo demonstriert. Charakteristischer Einstieg mit Sprung in Kosa-Dachi (Soete-Uchi-Uke), gefolgt von Uchi-Uke/Soto-Uke-Wechselblöcken im Hanmi/Gyaku-Hanmi-Spiel. Enthält drei Yama-Zuki (einzigartig in Bassai Dai und Wankan), die Tsukami-Yose-Greiftechnik mit Sokuto-Kekomi sowie eine markante Shuto-Uke-Folge in Kokutsu-Dachi am Ende. Bassai Dai gilt als Prüfstein der fortgeschrittenen Ausbildung.',
     erstePruefung: '1. Kyu',
-    kiai: [18, 42],
+    kiai: [19, 42],
   },
   {
     id: 'bassai-sho',
