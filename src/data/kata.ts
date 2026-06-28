@@ -230,9 +230,9 @@ export const kata: Kata[] = [
     bewegungsanzahl: 41,
     schwierigkeit: 'Fortgeschritten',
     gruppe: 'Shorei',
-    beschreibung: 'Sochin wird hauptsächlich im Fudo-Dachi (Unerschütterlicher Stand) ausgeführt und betont tiefe, erdverbundene Kraft kombiniert mit plötzlich explosiven Momenten. Charakteristisch sind Uraken-Uchi-Techniken und kraftvolle Age-Uke mit Gyaku-Zuki-Kombinationen. Die tiefe Standbeinarbeit vermittelt das Gefühl unbeweglicher Stärke.',
+    beschreibung: 'Sochin wird hauptsächlich im Fudo-Dachi (Unerschütterlicher Stand, oft auch "Sochin-Dachi" genannt) ausgeführt und betont tiefe, erdverbundene Kraft kombiniert mit plötzlich explosiven Momenten. Charakteristisch ist die Muso-Gamae-Eröffnung (Gedan-Uke + Age-Uke simultan), die dreifach langsam und kraftvoll wiederholt wird, sowie die Yoko-Geri-Keage + Uraken-Yokomawashi-Kombinationen aus dem Einbeinstand mit anschließendem Mae-Empi auf die offene Handfläche. Der charakteristische Yumi-Zuki und der Mikazuki-Geri auf die linke Handfläche unterstreichen das Bild unbeweglicher Stärke.',
     erstePruefung: '3. Dan',
-    kiai: [33, 41],
+    kiai: [30, 41],
   },
   {
     id: 'meikyo',
