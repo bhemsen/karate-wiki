@@ -298,6 +298,6 @@ export const kata: Kata[] = [
     gruppe: 'Shorin',
     beschreibung: 'Das kleinere Gegenstück zu Gojushiho Dai drückt dieselben Grundprinzipien mit leicht abweichenden Techniken und Übergängen aus. Zusammen bilden beide Gojushiho-Katas die höchste Ebene des Kata-Studiums im Shotokan. Gojushiho Sho wird bei Wettkämpfen häufiger gezeigt als die Dai-Version.',
     erstePruefung: '4. Dan',
-    kiai: [34, 65],
+    kiai: [57, 64],
   },
 ];
