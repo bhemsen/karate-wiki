@@ -274,7 +274,7 @@ export const kata: Kata[] = [
     bewegungsanzahl: 24,
     schwierigkeit: 'Fortgeschritten',
     gruppe: 'Shorin',
-    beschreibung: 'Die kürzeste der offiziellen Shotokan-Katas mit 24 Bewegungen besitzt trotz ihrer Kürze großen Ausdrucksgehalt. Wankan enthält den charakteristischen Neko-Ashi-Dachi und betont kompakte, präzise Techniken mit intensiver Körperspannung. Der einzige Kiai am Ende unterstreicht die Konzentration auf Qualität statt Quantität.',
+    beschreibung: 'Die kürzeste der offiziellen Shotokan-Katas mit 24 Bewegungen. Die ersten drei Bewegungen – zwei Kakiwake-Uke und Hasami-Uke mit Hiza-Kamae – bilden die Form einer Krone und geben der Kata ihren Namen. Charakteristisch sind die Tigermaul-Technik Koko-Sukui-Uke und der abschließende Yama-Zuki (Bergstoß). Wankan ist die einzige Shotokan-Kata mit nur einem Kiai (am Ende auf dem Yama-Zuki).',
     erstePruefung: '3. Dan',
     kiai: [24],
   },
