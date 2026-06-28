@@ -166,7 +166,7 @@ export const kata: Kata[] = [
     gruppe: 'Shorei',
     beschreibung: 'Hangetsu kombiniert langsame, atemsynchronisierte Abschnitte mit plötzlich explosiven Techniken. Die Fortbewegung erfolgt in charakteristischen halbmondförmigen Schritten (Hangetsu-Ashi) mit simultaner Ibuki-Atemübung. Der Wechsel zwischen kontrollierter Langsamkeit und Explosivität macht diese Kata besonders anspruchsvoll.',
     erstePruefung: '2. Dan',
-    kiai: [11, 41],
+    kiai: [11, 40],
   },
   {
     id: 'jion',
