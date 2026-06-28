@@ -252,9 +252,9 @@ export const kata: Kata[] = [
     bewegungsanzahl: 32,
     schwierigkeit: 'Fortgeschritten',
     gruppe: 'Sonstige',
-    beschreibung: 'Eine ungewöhnliche Kata mit atypischen Fingerstoß-, Handgelenk- und Kreistechniken, die im modernen Wettkampf selten vorkommen. Sie vermittelt Techniken zur Bekämpfung auf engster Distanz. Charakteristisch ist der Schluss mit drei kleinen Sprüngen nach hinten (Nihon-Nukite-Sequenz).',
+    beschreibung: 'Eine ungewöhnliche Kata mit atypischen Fingerstoß-, Handgelenk- und Kreistechniken, die im modernen Wettkampf selten vorkommen. Sie vermittelt Techniken zur Bekämpfung auf engster Distanz. Charakteristisch sind Nakadaka-Ippon-Ken (Mittelfinger-Knöchelfaust), Nihon-Nukite, Hasami-Zuki sowie der einzigartige Abschluss mit drei kleinen Sprüngen rückwärts (Yori-Ashi).',
     erstePruefung: '3. Dan',
-    kiai: [25, 32],
+    kiai: [28, 32],
   },
   {
     id: 'unsu',
