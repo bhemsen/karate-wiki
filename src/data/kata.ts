@@ -186,9 +186,9 @@ export const kata: Kata[] = [
     bewegungsanzahl: 24,
     schwierigkeit: 'Fortgeschritten',
     gruppe: 'Sonstige',
-    beschreibung: 'Eine kompakte, technisch tiefgründige Kata, deren Name auf die Fähigkeit hinweist, zehn Gegner zu überwältigen. Sie enthält charakteristische Morote-Techniken (beidhändige Techniken) und klassische Abwehren gegen Stab- oder Waffenangriffe. Jitte ist die kürzeste der drei Tempel-Katas.',
+    beschreibung: 'Eine kompakte, technisch tiefgründige Kata, deren Name auf die Fähigkeit hinweist, zehn Gegner zu überwältigen. Sie enthält charakteristische Bo-Abwehr-Sequenzen (Bo-Tsukami-Uke, Bo-Toriage, Bo-Oshimodoshi), drei Jodan-Yoko-Uchi-Harai aus Yama-Gamae sowie vier abschließende Jodan-Age-Uke. Jitte ist die kürzeste der drei Tempel-Katas und beginnt – wie Jion und Jiin – aus Jiai-no-Kamae.',
     erstePruefung: '2. Dan',
-    kiai: [7, 24],
+    kiai: [13, 24],
   },
   {
     id: 'jiin',
