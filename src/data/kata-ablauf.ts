@@ -1127,37 +1127,39 @@ const unsu: KataAblauf = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// WANKAN  (24 Bewegungen, 2 Kiai)
-// Techniken: Neko-Ashi-Dachi, Shuto-Uke, Age-Uke, Uraken-Uchi, kompakt und präzise
+// WANKAN  (24 Bewegungen, 1 Kiai bei 24 — JKA-Standard, Bertel/Nakayama)
+// Techniken: Kakiwake-Uke, Hasami-Uke, Hiza-Kamae, Koko-Sukui-Uke, Gyaku
+// Tate-Shuto-Uke, Mae-Geri, Yama-Zuki. Kürzeste Shotokan-Kata mit nur einem
+// Kiai am Ende (Yama-Zuki). Eröffnung diagonal aus Musubi-Dachi/Hachiji-Dachi.
 // ─────────────────────────────────────────────────────────────────────────────
 const wankan: KataAblauf = {
   id: 'wankan',
   vollstaendig: true,
   schritte: [
-    { nr: 1,  technik: 'Shuto-Uke',            seite: 'Links',  richtung: 'Links wenden',        stand: 'Kokutsu-Dachi',  beschreibung: 'Links wenden; linker Handkanten-Block in Kokutsu-Dachi. Wankan zeichnet sich durch präzise Techniken aus.' },
-    { nr: 2,  technik: 'Shuto-Uke',            seite: 'Rechts', richtung: '180° rechts wenden',  stand: 'Kokutsu-Dachi',  beschreibung: 'Vollständig rechts; rechter Handkanten-Block.' },
-    { nr: 3,  technik: 'Age-Uke',              seite: 'Links',  richtung: '90° links wenden',    stand: 'Zenkutsu-Dachi', beschreibung: 'Zur Hauptrichtung; linker Aufwärtsblock.' },
-    { nr: 4,  technik: 'Gyaku-Zuki Chudan',    seite: 'Rechts', richtung: 'Stand halten',        stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Gegenstoß Chudan.' },
-    { nr: 5,  technik: 'Age-Uke',              seite: 'Rechts', richtung: 'Schritt vor',         stand: 'Zenkutsu-Dachi', beschreibung: 'Schritt vor; rechter Aufwärtsblock.' },
+    { nr: 1,  technik: 'Kakiwake-Uke Chudan',  seite: 'Beide',  richtung: '45° rechts vorne',    stand: 'Neko-Ashi-Dachi', beschreibung: 'Aus Hachiji-Dachi; rechter Fuß diagonal 45° rechts vorne in Neko-Ashi-Dachi; Kakiwake-Uke (Keil-/Trennblock) Chudan – die ersten Bewegungen bilden die Form einer Krone (Wankan = König-Krone).' },
+    { nr: 2,  technik: 'Kakiwake-Uke Chudan',  seite: 'Beide',  richtung: '90° links wenden',    stand: 'Neko-Ashi-Dachi', beschreibung: 'Kopf links; linker Fuß diagonal 45° links vorne in Neko-Ashi-Dachi; zweiter Kakiwake-Uke – beide Trennblöcke zusammen bilden die seitlichen Spitzen der Krone.' },
+    { nr: 3,  technik: 'Hasami-Uke + Hiza-Kamae', seite: 'Beide', richtung: 'Schritt vor',       stand: 'Heisoku-Dachi',  beschreibung: 'Hasami-Uke (Scherenblock) mit gleichzeitigem Anheben des rechten Knies in Hiza-Kamae (Knie-Schutzhaltung). Drittes Element der Krone – kennzeichnend für Wankan.' },
+    { nr: 4,  technik: 'Gyaku Tate-Shuto-Uke', seite: 'Links',  richtung: 'Fußlandung',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß landet vorne; linker Gyaku Tate-Shuto-Uke (vertikaler Handkanten-Block mit der hinteren Hand).' },
+    { nr: 5,  technik: 'Jun-Zuki Chudan',      seite: 'Rechts', richtung: 'Stand halten',        stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Geradstoß Chudan – Vorderhandstoß zur Hauptrichtung.' },
     { nr: 6,  technik: 'Gyaku-Zuki Chudan',    seite: 'Links',  richtung: 'Stand halten',        stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Gegenstoß Chudan.' },
-    { nr: 7,  technik: 'Neko-Ashi + Uraken',   seite: 'Rechts', richtung: 'Rückschritt',         stand: 'Neko-Ashi-Dachi', beschreibung: 'Rückschritt in Neko-Ashi-Dachi; rechter Uraken-Schlag zur Seite – charakteristisches Wankan-Element.' },
-    { nr: 8,  technik: 'Neko-Ashi + Uraken',   seite: 'Links',  richtung: 'Rückschritt',         stand: 'Neko-Ashi-Dachi', beschreibung: 'Weiterer Rückschritt in Neko-Ashi-Dachi; linker Uraken-Schlag.' },
-    { nr: 9,  technik: 'Gedan-Barai',          seite: 'Links',  richtung: 'Links wenden',        stand: 'Zenkutsu-Dachi', beschreibung: 'Links wenden; linker Unterarm-Block.' },
-    { nr: 10, technik: 'Oi-Zuki Chudan',       seite: 'Rechts', richtung: 'Schritt vor',         stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Geradstoß Chudan.' },
-    { nr: 11, technik: 'Gedan-Barai',          seite: 'Rechts', richtung: '180° rechts wenden',  stand: 'Zenkutsu-Dachi', beschreibung: 'Vollständig rechts; rechter Unterarm-Block.' },
-    { nr: 12, technik: 'Oi-Zuki Chudan',       seite: 'Links',  richtung: 'Schritt vor',         stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Geradstoß Chudan.' },
-    { nr: 13, technik: 'Uchi-Uke',             seite: 'Links',  richtung: '90° links wenden',    stand: 'Kokutsu-Dachi',  beschreibung: 'Zur Hauptrichtung; linker Innenblock.' },
-    { nr: 14, technik: 'Gyaku-Zuki Chudan',    seite: 'Rechts', richtung: 'Stand halten',        stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Gegenstoß Chudan.' },
-    { nr: 15, technik: 'Uchi-Uke',             seite: 'Rechts', richtung: 'Schritt vor',         stand: 'Kokutsu-Dachi',  beschreibung: 'Schritt vor; rechter Innenblock.' },
-    { nr: 16, technik: 'Gyaku-Zuki Chudan',    seite: 'Links',  richtung: 'Stand halten',        stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Gegenstoß Chudan.' },
-    { nr: 17, technik: 'Neko-Ashi + Shuto-Uke', seite: 'Links', richtung: 'Links wenden',        stand: 'Neko-Ashi-Dachi', beschreibung: 'Links wenden in Neko-Ashi-Dachi; linker Handkanten-Block.' },
-    { nr: 18, technik: 'Neko-Ashi + Shuto-Uke', seite: 'Rechts', richtung: '180° rechts wenden', stand: 'Neko-Ashi-Dachi', beschreibung: 'Vollständig rechts in Neko-Ashi-Dachi; rechter Handkanten-Block.' },
-    { nr: 19, technik: 'Age-Uke',              seite: 'Links',  richtung: '90° links wenden',    stand: 'Zenkutsu-Dachi', beschreibung: 'Zur Hauptrichtung; linker Aufwärtsblock.' },
-    { nr: 20, technik: 'Age-Uke',              seite: 'Rechts', richtung: 'Schritt vor',         stand: 'Zenkutsu-Dachi', beschreibung: 'Schritt vor; rechter Aufwärtsblock.' },
-    { nr: 21, technik: 'Age-Uke',              seite: 'Links',  richtung: 'Schritt vor',         stand: 'Zenkutsu-Dachi', beschreibung: 'Schritt vor; linker Aufwärtsblock.' },
-    { nr: 22, technik: 'Gedan-Barai',          seite: 'Links',  richtung: 'Links wenden',        stand: 'Zenkutsu-Dachi', beschreibung: 'Links wenden; linker Unterarm-Block.' },
-    { nr: 23, technik: 'Gedan-Barai',          seite: 'Rechts', richtung: '180° rechts wenden',  stand: 'Zenkutsu-Dachi', beschreibung: 'Vollständig rechts; rechter Unterarm-Block.' },
-    { nr: 24, technik: 'Morote-Uke',           seite: 'Links',  richtung: '90° links wenden',    stand: 'Zenkutsu-Dachi', beschreibung: 'Zur Hauptrichtung; Doppelarmblock. Kiai! Yame.', kiai: true },
+    { nr: 7,  technik: 'Koko-Sukui-Uke',       seite: 'Links',  richtung: 'Rückschritt links',   stand: 'Neko-Ashi-Dachi', beschreibung: 'Rückschritt in Neko-Ashi-Dachi nach links; Koko-Sukui-Uke (Tigermaul-Schöpfblock) – charakteristische Wankan-Technik, endet in einem Kniehebelwurf.' },
+    { nr: 8,  technik: 'Gyaku Tate-Shuto-Uke', seite: 'Rechts', richtung: 'Schritt vor',         stand: 'Zenkutsu-Dachi', beschreibung: 'Schritt vor; rechter Gyaku Tate-Shuto-Uke mit der hinteren Hand.' },
+    { nr: 9,  technik: 'Jun-Zuki Chudan',      seite: 'Links',  richtung: 'Stand halten',        stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Geradstoß Chudan.' },
+    { nr: 10, technik: 'Gyaku-Zuki Chudan',    seite: 'Rechts', richtung: 'Stand halten',        stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Gegenstoß Chudan.' },
+    { nr: 11, technik: 'Koko-Sukui-Uke',       seite: 'Rechts', richtung: '180° rechts wenden',  stand: 'Neko-Ashi-Dachi', beschreibung: 'Vollständige 180°-Wendung in Neko-Ashi-Dachi; rechter Koko-Sukui-Uke (Tigermaul-Schöpfblock).' },
+    { nr: 12, technik: 'Gyaku Tate-Shuto-Uke', seite: 'Links',  richtung: 'Schritt vor',         stand: 'Zenkutsu-Dachi', beschreibung: 'Schritt vor; linker Gyaku Tate-Shuto-Uke.' },
+    { nr: 13, technik: 'Jun-Zuki Chudan',      seite: 'Rechts', richtung: 'Stand halten',        stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Geradstoß Chudan.' },
+    { nr: 14, technik: 'Gyaku-Zuki Chudan',    seite: 'Links',  richtung: 'Stand halten',        stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Gegenstoß Chudan.' },
+    { nr: 15, technik: 'Tettsui-Uchi',         seite: 'Rechts', richtung: '90° rechts wenden',   stand: 'Kiba-Dachi',     beschreibung: 'Wendung 90° rechts in Kiba-Dachi; Tettsui-Uchi (Hammerfaust-Schlag) seitwärts.' },
+    { nr: 16, technik: 'Mae-Geri Chudan',      seite: 'Links',  richtung: '90° links wenden',    stand: 'Zenkutsu-Dachi', beschreibung: 'Wendung zur Hauptrichtung; linker Vorwärtsfußtritt Chudan.' },
+    { nr: 17, technik: 'Jun-Zuki Chudan',      seite: 'Links',  richtung: 'Fußlandung',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß landet vorne; linker Geradstoß Chudan.' },
+    { nr: 18, technik: 'Mae-Geri Chudan',      seite: 'Rechts', richtung: 'Tritt vorne',         stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Vorwärtsfußtritt Chudan.' },
+    { nr: 19, technik: 'Jun-Zuki Chudan',      seite: 'Rechts', richtung: 'Fußlandung',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß landet vorne; rechter Geradstoß Chudan.' },
+    { nr: 20, technik: 'Mae-Geri Chudan',      seite: 'Links',  richtung: 'Tritt vorne',         stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Vorwärtsfußtritt Chudan.' },
+    { nr: 21, technik: 'Jun-Zuki Chudan',      seite: 'Links',  richtung: 'Fußlandung',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß landet vorne; linker Geradstoß Chudan – Abschluss der Mae-Geri/Jun-Zuki-Kombinationen.' },
+    { nr: 22, technik: 'Gedan-Barai',          seite: 'Rechts', richtung: 'Vorbereitung',        stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Unterarm-Block als Vorbereitung – Übergang zur finalen Wendung.' },
+    { nr: 23, technik: 'Wendung Vorbereitung', seite: 'Beide',  richtung: '180° rechts wenden',  stand: 'Zenkutsu-Dachi', beschreibung: 'Kopf rechts; vollständige 180°-Wendung; beide Fäuste werden an die linke Hüfte gezogen zur Vorbereitung des Yama-Zuki.' },
+    { nr: 24, technik: 'Yama-Zuki',            seite: 'Beide',  richtung: 'Stand halten',        stand: 'Fudo-Dachi',     beschreibung: 'Yama-Zuki (Bergstoß) – große doppelte U-förmige Faustführung: linke Faust Jodan (Gesicht), rechte Faust Chudan (Bauch), Fäuste auf vertikaler Achse. Einziger Kiai der Kata! Yame.', kiai: true },
   ],
 };
 
