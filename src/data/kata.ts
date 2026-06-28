@@ -241,9 +241,9 @@ export const kata: Kata[] = [
     bewegungsanzahl: 33,
     schwierigkeit: 'Fortgeschritten',
     gruppe: 'Sonstige',
-    beschreibung: 'Diese Kata ist bekannt für ihre kreisenden und schleifenden Bewegungen, die auf innere Klarheit und Reinheit hinweisen – der polierte Spiegel als Metapher für einen klaren, ruhigen Geist (Mushin). Meikyo enthält ungewöhnliche Kreisbewegungen der Arme und betont technische Reinheit über Kraftentfaltung.',
+    beschreibung: 'Die "Spiegelpolieren"-Kata stammt aus den Tomari-Te/Rohai-Linien und wurde von Gichin Funakoshi adaptiert. Die Eröffnung in Kiba-Dachi mit erhobenen Händen vor dem Gesicht symbolisiert das Blicken in einen polierten Spiegel – Sinnbild für innere Klarheit und Mushin. Charakteristisch sind die Doppel-Stockabwehr (Morote Jo-Uke / Bo-Dori), der Mikazuki-Geri auf die geöffnete Handfläche und vor allem der spektakuläre Sankaku-Tobi (Dreieckssprung) mit Tobi-Empi-Uchi am Ende – das Markenzeichen der Kata.',
     erstePruefung: '3. Dan',
-    kiai: [26, 33],
+    kiai: [24, 32],
   },
   {
     id: 'chinte',
