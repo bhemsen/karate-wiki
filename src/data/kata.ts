@@ -153,9 +153,9 @@ export const kata: Kata[] = [
     bewegungsanzahl: 37,
     schwierigkeit: 'Fortgeschritten',
     gruppe: 'Shorin',
-    beschreibung: 'Diese dynamische Kata imitiert die fließenden Bewegungen einer fliegenden Schwalbe mit schnellen, hohen und tiefen Positionswechseln. Der Kontrast zwischen explosiver Schnelligkeit und Stille sowie die vertikalen Positionswechsel – vom tiefen Kniend-Angriff bis zum aufrechten Sprung – sind ihr Markenzeichen.',
+    beschreibung: 'Diese dynamische Kata imitiert die fließenden Bewegungen einer fliegenden Schwalbe mit schnellen, hohen und tiefen Positionswechseln. Charakteristisch sind die wiederholten Hiza-Geri-/Gedan-Zuki-Sequenzen mit anschließendem rückwärtigem Gedan-Barai in tiefem Zenkutsu-Dachi, der Age-Zuki (Aufwärts-Fauststoß) als Signatur-Technik sowie der berühmte 360°-Sprung (Kaiten-Tobi) am Ende mit Landung in Kokutsu-Dachi und Shuto-Uke.',
     erstePruefung: '1. Dan',
-    kiai: [25, 37],
+    kiai: [15, 36],
   },
   {
     id: 'hangetsu',
