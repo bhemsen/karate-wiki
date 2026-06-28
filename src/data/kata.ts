@@ -219,9 +219,9 @@ export const kata: Kata[] = [
     bewegungsanzahl: 34,
     schwierigkeit: 'Fortgeschritten',
     gruppe: 'Shorin',
-    beschreibung: 'Diese rhythmische Kata zeichnet sich durch fließende, wellenartige Bewegungen aus, die Weichheit und Explosivität verbinden. Kreisförmige Arm- und Körperbewegungen wechseln mit kraftvollen Kontertechniken ab. Ihr ungewöhnlicher Rhythmus macht sie zu einer der charakteristischsten Shotokan-Katas.',
+    beschreibung: 'Diese rhythmische Kata aus der Aragaki-Linie zeichnet sich durch den ständigen Wechsel zwischen langsam-fließenden Sanchin-Dachi-Passagen (mit charakteristischer Sanchin-Atmung) und schnellen, explosiven Kontertechniken aus. Nijushiho enthält exklusive Shotokan-Techniken wie Awase-Zuki (U-förmiger Doppelstoß), Teisho-Awase-Zuki (Handballen-Doppelstoß) und Mawashi-Tekubi-Kake-Uke. Charakteristisch sind die Empi-Uchi-Angriffe in mehrere Richtungen und die Yoko-Geri-Kekomi-Sequenzen im Kiba-Dachi.',
     erstePruefung: '2. Dan',
-    kiai: [12, 34],
+    kiai: [18, 33],
   },
   {
     id: 'sochin',
