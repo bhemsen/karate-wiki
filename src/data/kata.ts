@@ -208,9 +208,9 @@ export const kata: Kata[] = [
     bewegungsanzahl: 42,
     schwierigkeit: 'Fortgeschritten',
     gruppe: 'Shorin',
-    beschreibung: 'Diese elegante Kata ist bekannt für ihre charakteristische Sequenz im Tsuru-Ashi-Dachi (Kranich-Stand), bei der der Karateka auf einem Bein balanciert und einen Yoko-Geri ausführt. Gankaku erfordert außergewöhnliche Standbein-Stabilität, mentale Fokussierung und präzise Körperkontrolle.',
+    beschreibung: 'Diese elegante Kata ist bekannt für ihre charakteristische Sequenz im Tsuru-Ashi-Dachi (Kranich-Stand), bei der der Karateka auf einem Bein balanciert und einen Yoko-Geri Keage kombiniert mit Uraken-Uchi ausführt. Die Kranich-Haltung (Gankaku-Kamae) verbindet Tsuru-Ashi-Dachi mit Manji-Uke. Gankaku erfordert außergewöhnliche Standbein-Stabilität, mentale Fokussierung und präzise Körperkontrolle.',
     erstePruefung: '2. Dan',
-    kiai: [10, 42],
+    kiai: [28, 42],
   },
   {
     id: 'nijushiho',
