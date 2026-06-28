@@ -120,9 +120,9 @@ export const kata: Kata[] = [
     bewegungsanzahl: 27,
     schwierigkeit: 'Fortgeschritten',
     gruppe: 'Shorin',
-    beschreibung: 'Die kleinere Schwester von Bassai Dai ist keine vereinfachte Version, sondern eine eigenständige Kata mit eigenen Techniken. Sie enthält Nukite-Stöße und betont präzise Nahdistanz-Abwehrtechniken. Die Embusen unterscheidet sich deutlich von Bassai Dai.',
+    beschreibung: 'Die kleinere Schwester von Bassai Dai ist keine vereinfachte Version, sondern eine eigenständige Kata mit eigenen Techniken. Charakteristisch sind Bo-Uke (Stockabwehr) und Tsukami-Uke (Greifblöcke) gegen Stockangriffe. Die Embusen unterscheidet sich deutlich von Bassai Dai und endet mit zwei Ryosho-Tsukami-Uke in Neko-Ashi-Dachi.',
     erstePruefung: '2. Dan',
-    kiai: [9, 27],
+    kiai: [17, 22],
   },
   {
     id: 'kanku-dai',

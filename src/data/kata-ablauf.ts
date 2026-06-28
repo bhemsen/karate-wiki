@@ -388,40 +388,43 @@ const bassaiDai: KataAblauf = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// BASSAI SHO  (27 Bewegungen, 2 Kiai)
-// Techniken: Gedan-Juji-Uke, Nukite, Shuto-Uke, Tate-Zuki, Haishu-Uke, Age-Uke
+// BASSAI SHO  (27 Bewegungen, 2 Kiai bei #17 und #22)
+// Techniken: Awase-Uke, Bo-Uke, Tsukami-Uke, Manji-Kamae, Shuto-Uke,
+//            Kakiwake-Uke, Ura-Zuki, Sokumen-Morote-Zuki, Kentsui-Uchi,
+//            Sokuto-Yoko-Geri (Keage/Kekomi), Haito-Uchimawashi-Uchi
+// Charakteristik: Stock-Abwehr (Bo-Dori) und Greifblöcke (Tsukami) – Itosu-Form
 // ─────────────────────────────────────────────────────────────────────────────
 const bassaiSho: KataAblauf = {
   id: 'bassai-sho',
   vollstaendig: true,
   schritte: [
-    { nr: 1,  technik: 'Gedan-Juji-Uke',    seite: 'Beide',  richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Wie Bassai Dai mit Kreuzblock nach unten, aber weicher Einstieg; Gewicht auf linkem Bein.' },
-    { nr: 2,  technik: 'Morote-Uke',        seite: 'Rechts', richtung: 'Pivot rechts',         stand: 'Zenkutsu-Dachi', beschreibung: 'Pivot nach rechts; Doppelarmblock, rechts aktiv.' },
-    { nr: 3,  technik: 'Morote-Uke',        seite: 'Links',  richtung: '180° links',           stand: 'Zenkutsu-Dachi', beschreibung: 'Vollständig links; Doppelarmblock, links aktiv.' },
-    { nr: 4,  technik: 'Tate-Zuki',         seite: 'Rechts', richtung: '90° rechts wenden',    stand: 'Zenkutsu-Dachi', beschreibung: 'Zur Hauptrichtung wenden; rechter vertikaler Fauststoß (Tate-Ken) auf Jodan-Höhe.' },
-    { nr: 5,  technik: 'Nukite Jodan',      seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß vor; rechter Fingerstoß auf Jodan-Höhe (Hals). Charakteristische Bassai-Sho-Technik.' },
-    { nr: 6,  technik: 'Haishu-Uke',        seite: 'Links',  richtung: '90° links wenden',     stand: 'Kokutsu-Dachi',  beschreibung: 'Links wenden in Kokutsu-Dachi; linker Handrücken-Block (Haishu-Uke) auf Jodan-Höhe.' },
-    { nr: 7,  technik: 'Haishu-Uke',        seite: 'Rechts', richtung: '180° rechts wenden',   stand: 'Kokutsu-Dachi',  beschreibung: 'Vollständig rechts; rechter Handrücken-Block auf Jodan-Höhe.' },
-    { nr: 8,  technik: 'Gedan-Barai',       seite: 'Links',  richtung: '90° links wenden',     stand: 'Zenkutsu-Dachi', beschreibung: 'Zur Hauptrichtung; linker Unterarm-Block nach unten.' },
-    { nr: 9,  technik: 'Age-Uke',           seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß vor; rechter Aufwärtsblock. Kiai!', kiai: true },
-    { nr: 10, technik: 'Age-Uke',           seite: 'Links',  richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß vor; linker Aufwärtsblock.' },
-    { nr: 11, technik: 'Age-Uke',           seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß vor; rechter Aufwärtsblock.' },
-    { nr: 12, technik: 'Gedan-Barai + Uchi-Uke', seite: 'Beide', richtung: 'Pivot Kiba-Dachi', stand: 'Kiba-Dachi',    beschreibung: 'Pivot in Kiba-Dachi; simultaner Gedan-Barai und Uchi-Uke.' },
-    { nr: 13, technik: 'Empi-Uchi',         seite: 'Rechts', richtung: 'Stand halten',         stand: 'Kiba-Dachi',     beschreibung: 'Rechter Ellenbogen-Schlag nach vorne.' },
-    { nr: 14, technik: 'Uchi-Uke',          seite: 'Links',  richtung: '90° links wenden',     stand: 'Zenkutsu-Dachi', beschreibung: 'Links wenden; linker Innenblock.' },
-    { nr: 15, technik: 'Oi-Zuki Chudan',    seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Rechter Fuß vor; rechter Geradstoß Chudan.' },
-    { nr: 16, technik: 'Uchi-Uke',          seite: 'Rechts', richtung: '180° rechts wenden',   stand: 'Zenkutsu-Dachi', beschreibung: 'Vollständig rechts; rechter Innenblock.' },
-    { nr: 17, technik: 'Oi-Zuki Chudan',    seite: 'Links',  richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi', beschreibung: 'Linker Fuß vor; linker Geradstoß Chudan.' },
-    { nr: 18, technik: 'Yoko-Geri Kekomi',  seite: 'Rechts', richtung: '90° links, Tritt rechts', stand: 'Kiba-Dachi', beschreibung: 'Links wenden in Kiba-Dachi; rechter stoßender Seitfußtritt.' },
-    { nr: 19, technik: 'Empi-Uchi Ushiro',  seite: 'Rechts', richtung: 'Fußlandung',           stand: 'Kiba-Dachi',     beschreibung: 'Rechter Ellenbogen nach hinten.' },
-    { nr: 20, technik: 'Uraken-Uchi',       seite: 'Rechts', richtung: 'Stand halten',         stand: 'Kiba-Dachi',     beschreibung: 'Rechter Rückhand-Schlag Jodan.' },
-    { nr: 21, technik: 'Yoko-Geri Kekomi',  seite: 'Links',  richtung: 'Tritt links',          stand: 'Kiba-Dachi',     beschreibung: 'Linker stoßender Seitfußtritt.' },
-    { nr: 22, technik: 'Empi-Uchi Ushiro',  seite: 'Links',  richtung: 'Fußlandung',           stand: 'Kiba-Dachi',     beschreibung: 'Linker Ellenbogen nach hinten.' },
-    { nr: 23, technik: 'Uraken-Uchi',       seite: 'Links',  richtung: 'Stand halten',         stand: 'Kiba-Dachi',     beschreibung: 'Linker Rückhand-Schlag Jodan.' },
-    { nr: 24, technik: 'Age-Uke',           seite: 'Links',  richtung: '90° links wenden',     stand: 'Zenkutsu-Dachi', beschreibung: 'Links wenden; linker Aufwärtsblock.' },
-    { nr: 25, technik: 'Age-Uke',           seite: 'Rechts', richtung: '180° rechts wenden',   stand: 'Zenkutsu-Dachi', beschreibung: 'Vollständig rechts; rechter Aufwärtsblock.' },
-    { nr: 26, technik: 'Jodan-Juji-Uke',    seite: 'Beide',  richtung: '90° links wenden',     stand: 'Zenkutsu-Dachi', beschreibung: 'Zur Hauptrichtung; Jodan-Kreuzblock.' },
-    { nr: 27, technik: 'Morote-Zuki',       seite: 'Beide',  richtung: 'Stand halten',         stand: 'Zenkutsu-Dachi', beschreibung: 'Beidseitiger Doppelstoß. Kiai! Yame.', kiai: true },
+    { nr: 1,  technik: 'Ryosho Juji Jodan Awase-Uke', seite: 'Beide',  richtung: 'Rechter Fuß vor',      stand: 'Kosa-Dachi',      beschreibung: 'Eröffnung aus Yoi: Rechter Fuß vor in Kreuzstand (Migi-Ashi-Mae-Kosa-Dachi); beide Handflächen treffen sich gekreuzt auf Jodan-Höhe (Awase-Uke). Beginn der Bo-Dori-Stockabwehr-Sequenz.' },
+    { nr: 2,  technik: 'Ryosho Jodan Bo-Uke',         seite: 'Beide',  richtung: 'Rückschritt',          stand: 'Kokutsu-Dachi',   beschreibung: 'Rückschritt in rechten Kokutsu-Dachi; beidhändiger horizontaler Stock-Block (Suihei-Bo-Dori) auf Jodan-Höhe – charakteristische Stock-Abwehr von Bassai Sho.' },
+    { nr: 3,  technik: 'Haito Gedan Sukui-Uke + Gedan-Barai', seite: 'Rechts', richtung: 'Fuß heran',     stand: 'Heisoku-Dachi',   beschreibung: 'Rechter Fuß zum linken in Heisoku-Dachi; rechter Innenhandkanten-Schöpfblock auf Gedan-Höhe, übergehend in rechten Gedan-Barai – fängt einen tiefen Stockangriff auf.' },
+    { nr: 4,  technik: 'Ryosho Jodan Bo-Uke',         seite: 'Beide',  richtung: 'Schritt vor',          stand: 'Kokutsu-Dachi',   beschreibung: 'Schritt vor in rechten Kokutsu-Dachi; erneut beidhändiger horizontaler Bo-Uke auf Jodan-Höhe. Zweite Stock-Abwehr.' },
+    { nr: 5,  technik: 'Migi Haishu + Hidari Koshi-Kamae', seite: 'Beide', richtung: 'Fuß heran',        stand: 'Heisoku-Dachi',   beschreibung: 'Fuß heran in Heisoku-Dachi (mit Ryo-Hiza-Kutsu, leichte Kniebeuge); rechter Handrücken (Saken-Haishu) vor, linke Faust an Hüfte. Vorbereitung für den folgenden Tritt.' },
+    { nr: 6,  technik: 'Sokuto Yoko-Geri Keage + Haito Uchimawashi-Uchi', seite: 'Rechts', richtung: 'Tritt rechts', stand: 'Sagi-Ashi-Dachi', beschreibung: 'Auf linkem Bein (Hidari-Sagi-Ashi-Dachi, Reiherstand); rechter Schnapp-Seitfußtritt mit Fußkante Chudan, gleichzeitig rechter Innenhandkanten-Schlag im Kreis (Uchimawashi) auf Jodan-Höhe.' },
+    { nr: 7,  technik: 'Hidari Tate-Shuto Chudan-Uke', seite: 'Links', richtung: 'Fußlandung',           stand: 'Kiba-Dachi',      beschreibung: 'Rechter Fuß landet rechts; in Kiba-Dachi linker vertikaler Handkanten-Block (Tate-Shuto-Uke) auf Chudan-Höhe.' },
+    { nr: 8,  technik: 'Migi Choku-Zuki Chudan',      seite: 'Rechts', richtung: 'Stand halten',         stand: 'Kiba-Dachi',      beschreibung: 'In Kiba-Dachi; rechter direkter Fauststoß (Choku-Zuki) auf Chudan-Höhe.' },
+    { nr: 9,  technik: 'Hidari Choku-Zuki Chudan',    seite: 'Links',  richtung: 'Stand halten',         stand: 'Kiba-Dachi',      beschreibung: 'In Kiba-Dachi; linker direkter Fauststoß auf Chudan-Höhe – schließt die Doppel-Choku-Zuki-Kombination.' },
+    { nr: 10, technik: 'Hidari Manji-Kamae',          seite: 'Beide',  richtung: 'Pivot links',          stand: 'Kokutsu-Dachi',   beschreibung: 'Pivot in rechten Kokutsu-Dachi; gleichzeitig linker Jodan-Uchi-Uke und rechter Gedan-Barai (Manji-Form, "Hakenkreuz"-Konfiguration). Einzelne Waza, nicht Kombination.' },
+    { nr: 11, technik: 'Migi Manji-Kamae',            seite: 'Beide',  richtung: '180° rechts wenden',   stand: 'Kokutsu-Dachi',   beschreibung: 'Vollständig rechts in linken Kokutsu-Dachi; spiegelbildlich rechter Jodan-Uchi-Uke und linker Gedan-Barai (Manji-Form).' },
+    { nr: 12, technik: 'Migi Shuto Chudan-Uke',       seite: 'Rechts', richtung: 'Pivot rechts',         stand: 'Kokutsu-Dachi',   beschreibung: 'In linkem Kokutsu-Dachi; rechter Handkanten-Block auf Chudan-Höhe – Beginn der Shuto-Uke-Quadrupel-Sequenz.' },
+    { nr: 13, technik: 'Hidari Shuto Chudan-Uke',     seite: 'Links',  richtung: 'Schritt vor',          stand: 'Kokutsu-Dachi',   beschreibung: 'Schritt vor in rechten Kokutsu-Dachi; linker Handkanten-Block auf Chudan-Höhe.' },
+    { nr: 14, technik: 'Migi Shuto Chudan-Uke',       seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Kokutsu-Dachi',   beschreibung: 'Schritt vor in linken Kokutsu-Dachi; rechter Handkanten-Block auf Chudan-Höhe.' },
+    { nr: 15, technik: 'Hidari Shuto Chudan-Uke',     seite: 'Links',  richtung: 'Ippo-Sagatte',         stand: 'Kokutsu-Dachi',   beschreibung: 'Ein Schritt zurück (Ippo-Sagatte) in rechten Kokutsu-Dachi; linker Handkanten-Block auf Chudan-Höhe. Vierter Shuto-Uke, Vorbereitung für Tsukami-Uke.' },
+    { nr: 16, technik: 'Ryosho Chudan Tsukami-Uke',   seite: 'Beide',  richtung: 'Fuß vor',              stand: 'Zenkutsu-Dachi',  beschreibung: 'Linker Fuß vor in Ashi-Zenkutsu (Übergangsform Zenkutsu-Dachi); beidseitiger Greifblock (Tiger-Maul, Bassai-Uke) auf Chudan-Höhe – fängt einen Stockangriff und greift ihn.' },
+    { nr: 17, technik: 'Sokuto Gedan Yoko-Kekomi + Ryosho Tsukami-Yose', seite: 'Rechts', richtung: 'Tritt rechts', stand: 'Sagi-Ashi-Dachi', beschreibung: 'Auf linkem Bein (Hidari-Sagi-Ashi-Dachi); rechter stoßender Seitfußtritt mit Fußkante auf Gedan-Höhe, gleichzeitig beidhändiges Heranziehen des gegriffenen Gegners (Tsukami-Yose). Kiai!', kiai: true },
+    { nr: 18, technik: 'Ryoken Chudan Kakiwake-Uke',  seite: 'Beide',  richtung: 'Fußlandung',           stand: 'Kokutsu-Dachi',   beschreibung: 'Rechter Fuß landet in rechtem Kokutsu-Dachi; beidhändiger Auseinanderspreiz-Block (Kakiwake-Uke) auf Chudan-Höhe – drängt zwei greifende Hände auseinander.' },
+    { nr: 19, technik: 'Ryoken Jodan Ura-Zuki',       seite: 'Beide',  richtung: 'Yori-Ashi vor',        stand: 'Kokutsu-Dachi',   beschreibung: 'Gleitschritt vor (Yori-Ashi) in rechtem Kokutsu-Dachi; beidhändiger umgekehrter Doppel-Fauststoß (Ura-Zuki) auf Jodan-Höhe.' },
+    { nr: 20, technik: 'Migi Soto-Uke + Sokumen Morote-Zuki', seite: 'Rechts', richtung: 'Sagi → Deashi-Barai → Kiba', stand: 'Kiba-Dachi', beschreibung: 'Hidari-Sagi-Ashi-Dachi mit rechtem Jodan-Soto-Uke; dann rechter Deashi-Barai (Fußfeger) absetzen in Kiba-Dachi mit rechtem seitlichem Sokumen-Morote-Zuki auf Chudan-Höhe.' },
+    { nr: 21, technik: 'Hidari Kentsui Chudan Uchimawashi-Uchi', seite: 'Links', richtung: 'Stand halten', stand: 'Kiba-Dachi',     beschreibung: 'In Kiba-Dachi; linker Hammerfaust-Schlag (Kentsui-Uchi) im Kreis (Uchimawashi) auf Chudan-Höhe.' },
+    { nr: 22, technik: 'Migi Oi-Zuki Chudan',         seite: 'Rechts', richtung: 'Schritt vor',          stand: 'Zenkutsu-Dachi',  beschreibung: 'Rechter Fuß vor in rechtem Zenkutsu-Dachi; rechter Geradstoß auf Chudan-Höhe. Kiai!', kiai: true },
+    { nr: 23, technik: 'Migi Soto-Uke + Sokumen Morote-Zuki', seite: 'Rechts', richtung: 'Sagi → Deashi-Barai → Kiba', stand: 'Kiba-Dachi', beschreibung: 'Erneut Hidari-Sagi-Ashi-Dachi mit rechtem Jodan-Soto-Uke → Deashi-Barai → Kiba-Dachi; rechter seitlicher Sokumen-Morote-Zuki.' },
+    { nr: 24, technik: 'Hidari Soto-Uke + Sokumen Morote-Zuki', seite: 'Links', richtung: 'Migi-Sagi → Deashi-Barai links → Kiba', stand: 'Kiba-Dachi', beschreibung: 'Spiegelbildlich: Migi-Sagi-Ashi-Dachi mit linkem Jodan-Soto-Uke → linker Deashi-Barai → Kiba-Dachi; linker seitlicher Sokumen-Morote-Zuki.' },
+    { nr: 25, technik: 'Migi Soto-Uke + Sokumen Morote-Zuki', seite: 'Rechts', richtung: 'Sagi → Deashi-Barai → Kiba', stand: 'Kiba-Dachi', beschreibung: 'Dritte Wiederholung: Hidari-Sagi-Ashi-Dachi mit rechtem Jodan-Soto-Uke → Deashi-Barai → Kiba-Dachi; rechter seitlicher Sokumen-Morote-Zuki.' },
+    { nr: 26, technik: 'Ryosho Chudan Tsukami-Uke',   seite: 'Beide',  richtung: 'Wenden',               stand: 'Neko-Ashi-Dachi', beschreibung: 'Wenden in Hidari-Ashi-Mae-Neko-Ashi-Dachi (linker Fuß vor, Katzenfuß-Stand); beidhändiger Chudan-Greifblock – erster Greif-Abschluss.' },
+    { nr: 27, technik: 'Ryosho Chudan Tsukami-Uke',   seite: 'Beide',  richtung: 'Wenden',               stand: 'Neko-Ashi-Dachi', beschreibung: 'Wenden in Migi-Ashi-Mae-Neko-Ashi-Dachi (rechter Fuß vor); erneut beidhändiger Chudan-Greifblock – schließt die Kata mit dem charakteristischen Tsukami-Motiv. Yame.' },
   ],
 };
 
