@@ -144,7 +144,7 @@ export const kata: Kata[] = [
     gruppe: 'Shorin',
     beschreibung: 'Die kleinere Version von Kanku Dai ist eine eigenständige Kata mit eigenen Charakteristika: Schnelligkeit und explosive Energie stehen im Vordergrund. Zwei Sprünge und schnelle Kombinationssequenzen unterscheiden sie deutlich von Kanku Dai. Die Embusen ist kompakter und die Techniken sind aggressiver.',
     erstePruefung: '2. Dan',
-    kiai: [18, 48],
+    kiai: [6, 48],
   },
   {
     id: 'empi',
