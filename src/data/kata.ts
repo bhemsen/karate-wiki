@@ -287,7 +287,7 @@ export const kata: Kata[] = [
     gruppe: 'Shorin',
     beschreibung: 'Die längste Shotokan-Kata enthält subtile und hochkomplexe Handtechniken, insbesondere Ippon-Nukite (Einfingerangriff) und Keito-Uke. Sie gilt als technisches Meisterwerk des Shotokan-Karate, das ein lebenslanges Studium erfordert. Die vielfältigen Handtechniken und Kombinationen erfordern höchste Präzision.',
     erstePruefung: '4. Dan',
-    kiai: [38, 67],
+    kiai: [59, 66],
   },
   {
     id: 'gojushiho-sho',
