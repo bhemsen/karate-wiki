@@ -16,7 +16,7 @@
 | 3 | gurtpruefungen-glossar-review | [spec](specs/archive/spec-gurtpruefungen-glossar-review.md) | [#3](https://github.com/bhemsen/karate-wiki/milestone/3) |
 | 4 | unstaged-integration | [spec](specs/archive/spec-unstaged-integration.md) | [#4](https://github.com/bhemsen/karate-wiki/milestone/4) |
 | 5 | kata-ablauf-review | [spec](specs/archive/spec-kata-ablauf-review.md) | [#5](https://github.com/bhemsen/karate-wiki/milestone/5) |
-| 6 | kata-ablauf-multi-source-verification | [spec](specs/spec-kata-ablauf-multi-source-verification.md) | [#6](https://github.com/bhemsen/karate-wiki/milestone/6) |
+| 6 | kata-ablauf-multi-source-verification | [spec](specs/archive/spec-kata-ablauf-multi-source-verification.md) | [#6](https://github.com/bhemsen/karate-wiki/milestone/6) |
 
 A phase gets a Spec link once `/loopkit:plan` drafts it, and a Milestone link once the
 spec is merged. The milestone (open/closed + issue progress) is where status lives.
