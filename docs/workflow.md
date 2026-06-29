@@ -101,6 +101,61 @@ Per track:
   and `Acceptance:` checklist still describe it; `Depends on:` is allowed but
   rarely needed. Its full state lives on the board.
 
+## Research-intensive issues
+
+An issue is **research-intensive** when its implementation requires ≥ 3 external
+source lookups (WebSearch) — typically any kata verification, multi-source
+fact-check, or content-correctness task.
+
+**Do not combine research and implementation in one issue.** Split into two
+linked issues per unit of work:
+
+### Research issue (`chore:research-<scope>`)
+
+- **Goal:** Gather ≥ N sources, cross-check across them, and reach documented
+  consensus on every disputed field (`technik`, `seite`, `stand`, `richtung`,
+  `kiai` position).
+- **Output:** A structured Markdown comment posted on this issue before it
+  closes — never a bare commit message. Format:
+
+  ```
+  ## Research: <Kata Name>
+
+  ### Sources
+  1. [Title](URL) — what it confirms
+  2. ...
+
+  ### Consensus
+  - technik per step: ...
+  - kiai: Step N (<technik>) and Step M (<technik>)
+
+  ### Disputes (minority → majority decision)
+  - Step N: Source A says X, Sources B/C/D say Y → **Y**
+  ```
+
+- **No TypeScript edits, no `npm run verify`.** The only allowed file write
+  is an optional `docs/research/<scope>.md` when the findings are complex enough
+  to warrant a permanent record; otherwise the issue comment is the sole output.
+- Closes with a `chore:` PR (docs-only or comment-only); Verify is still run
+  to confirm no regressions.
+
+### Implementation issue (`fix:` or `feat:`)
+
+- Body includes **`Research: #<research-issue-number>`** — the pointer to the
+  research comment above.
+- Depends on the research issue (`Depends on: #<research-issue-number>`).
+- The subagent reads the research comment (`gh issue view <n>`) **before**
+  touching any file — the comment is the sole content authority; no additional
+  WebSearch.
+- Full verify/build gate applies as normal.
+
+### When the spec signals this split
+
+When `/loopkit:plan` writes issues for a research-intensive phase, each
+verifiable unit (e.g. one kata) becomes **two issues**: the research issue
+listed first with the implementation issue depending on it. The spec's
+`Verification` section must name the research comment as a QA artefact.
+
 Milestone-level depends-on:
 
 - A milestone that depends on another carries a `Depends on milestone: #<n>`
