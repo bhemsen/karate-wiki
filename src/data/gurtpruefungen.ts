@@ -13,9 +13,9 @@ export interface Gurtpruefung {
 export const gurtpruefungen: Gurtpruefung[] = [
   {
     kyu: 9,
-    gurtfarbe: 'Gelb',
-    gurtHex: '#F1C40F',
-    pruefungsname: '9. Kyu – Weiß zu Gelb',
+    gurtfarbe: 'Weiß',
+    gurtHex: '#F5F5F5',
+    pruefungsname: '9. Kyu – Weißgurt',
     kihonAnforderungen: [
       'Oi-Zuki Jodan und Chudan (Zenkutsu-Dachi)',
       'Age-Uke mit Gyaku-Zuki',
@@ -29,9 +29,9 @@ export const gurtpruefungen: Gurtpruefung[] = [
   },
   {
     kyu: 8,
-    gurtfarbe: 'Orange',
-    gurtHex: '#E67E22',
-    pruefungsname: '8. Kyu – Gelb zu Orange',
+    gurtfarbe: 'Gelb',
+    gurtHex: '#F1C40F',
+    pruefungsname: '8. Kyu – Weiß zu Gelb',
     kihonAnforderungen: [
       'Oi-Zuki in Kombination (Jodan–Chudan)',
       'Soto-Uke mit Gyaku-Zuki',
@@ -46,9 +46,9 @@ export const gurtpruefungen: Gurtpruefung[] = [
   },
   {
     kyu: 7,
-    gurtfarbe: 'Grün',
-    gurtHex: '#27AE60',
-    pruefungsname: '7. Kyu – Orange zu Grün',
+    gurtfarbe: 'Orange',
+    gurtHex: '#E67E22',
+    pruefungsname: '7. Kyu – Gelb zu Orange',
     kihonAnforderungen: [
       'Alle bisherigen Grundschläge und -blöcke',
       'Shuto-Uke im Kokutsu-Dachi',
@@ -63,9 +63,9 @@ export const gurtpruefungen: Gurtpruefung[] = [
   },
   {
     kyu: 6,
-    gurtfarbe: 'Blau',
-    gurtHex: '#2980B9',
-    pruefungsname: '6. Kyu – Grün zu Blau',
+    gurtfarbe: 'Grün',
+    gurtHex: '#27AE60',
+    pruefungsname: '6. Kyu – Orange zu Grün',
     kihonAnforderungen: [
       'Kombinationsfolgen in Zenkutsu-Dachi und Kiba-Dachi',
       'Mawashi-Geri Jodan und Chudan',
@@ -80,9 +80,9 @@ export const gurtpruefungen: Gurtpruefung[] = [
   },
   {
     kyu: 5,
-    gurtfarbe: 'Lila',
-    gurtHex: '#8E44AD',
-    pruefungsname: '5. Kyu – Blau zu Lila',
+    gurtfarbe: 'Blau',
+    gurtHex: '#2980B9',
+    pruefungsname: '5. Kyu – Grün zu Blau',
     kihonAnforderungen: [
       'Alle Kihon-Techniken in sauberer Form',
       'Uraken-Uchi Jodan',
@@ -97,9 +97,9 @@ export const gurtpruefungen: Gurtpruefung[] = [
   },
   {
     kyu: 4,
-    gurtfarbe: 'Braun',
-    gurtHex: '#795548',
-    pruefungsname: '4. Kyu – Lila zu Braun',
+    gurtfarbe: 'Violett',
+    gurtHex: '#8E44AD',
+    pruefungsname: '4. Kyu – Blau zu Violett',
     kihonAnforderungen: [
       'Alle Heian-Kata-Techniken flüssig ausgeführt',
       'Tekki Shodan Kihon-Sequenzen',
@@ -115,7 +115,7 @@ export const gurtpruefungen: Gurtpruefung[] = [
   {
     kyu: 3,
     gurtfarbe: 'Braun (1. Stufe)',
-    gurtHex: '#6D4C41',
+    gurtHex: '#795548',
     pruefungsname: '3. Kyu – 1. Braungurt',
     kihonAnforderungen: [
       'Anspruchsvolle Kombinationsfolgen auf 10+ Schritte',
@@ -132,7 +132,7 @@ export const gurtpruefungen: Gurtpruefung[] = [
   {
     kyu: 2,
     gurtfarbe: 'Braun (2. Stufe)',
-    gurtHex: '#5D4037',
+    gurtHex: '#6D4C41',
     pruefungsname: '2. Kyu – 2. Braungurt',
     kihonAnforderungen: [
       'Alle Techniken aus dem Kihon-Repertoire auf höchstem Niveau',
@@ -148,8 +148,8 @@ export const gurtpruefungen: Gurtpruefung[] = [
   },
   {
     kyu: 1,
-    gurtfarbe: 'Braun (Schwarzgurt-Kandidat)',
-    gurtHex: '#3E2723',
+    gurtfarbe: 'Braun (3. Stufe)',
+    gurtHex: '#5D4037',
     pruefungsname: '1. Kyu – Abschluss Braungurt',
     kihonAnforderungen: [
       'Gesamtes Kihon-Repertoire auf Prüfungsniveau',
